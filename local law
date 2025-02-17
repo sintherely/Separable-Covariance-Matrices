@@ -1,0 +1,2203 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath, amsfonts, amsthm, bbm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{assumption}{Assumption}[section]
+
+\newcommand{\Hprod}[2]{\langle #1 , #2 \rangle_{\H}}
+\newcommand{\Hnorm}[1]{\| #1 \|_{\H}}
+\newcommand{\Rprod}[2]{\langle #1 , #2 \rangle}
+\newcommand{\Lnorm}[2]{\left\| #2 \right\|_{{#1}}}
+\newcommand{\Dnorm}[1]{\| #1 \|_{\DD}}
+\DeclareMathOperator{\fc}{fc}
+\newcommand{\Hpnorm}[2]{\| #2 \|_{\H,#1}}
+
+\newlength\figureheight
+\newlength\figurewidth
+
+\def\RR{{\mathbb R}}
+\def\ZZ{{\mathbb Z}}
+
+
+
+\newcommand{\Ric}{{\text{Ric}}}
+\DeclareMathOperator{\Ricci}{Ricci}
+
+
+
+\def\cA{{\mathcal A}}
+\def\cB{{\mathcal B}}
+\def\cO{{\mathcal O}}
+\def\cW{{\mathcal W}}
+
+
+\newcommand{\bmu}{{\bm{u}}}
+
+\newcommand{\bmq}{{\bm q}}
+\newcommand\prob{\mathbb{P}}
+\newcommand\expect{\mathbb{E}}
+\newcommand{\td}{\wt}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\wt}{\widetilde}
+\newcommand\SH{\hat{\Sigma}}
+\newcommand\ST{\tilde{\Sigma}}
+\newcommand\STH{\hat{\tilde{\Sigma}}}
+\newcommand\xx{\mathbf{x}}
+\newcommand\yy{\mathbf{y}}
+\newcommand\uu{\mathbf{u}}
+\newcommand\ut{\tilde{\mathbf{u}}}
+\newcommand\uh{\hat{\mathbf{u}}}
+\newcommand\vv{\mathbf{v}}
+\newcommand\vt{\tilde{\mathbf{v}}}
+\newcommand\vh{\hat{\mathbf{v}}}
+\newcommand\DD{\mathsf{D}}
+\newcommand\EE{\mathsf{E}}
+\newcommand\st{\tilde{\sigma}}
+\newcommand\ii{\mathrm{i}}
+\newcommand\dd{\mathrm{d}}
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+\numberwithin{assumption}{section}
+\numberwithin{lemma}{section}
+\numberwithin{definition}{section}
+\newcommand{\bla}{\bm{\lambda}}
+\newcommand{\boeta}{\bm{\eta}}
+\newcommand{\boxi}{\bm{\xi}}
+\newcommand{\bov}{\bm{v}}
+\newcommand{\bow}{\bm{w}}
+%\newcommand{\bla}{\mbox{\boldmath $\lambda$}}Ass
+\DeclareMathOperator{\bp}{\bold p}
+\newcommand{\boldu}{\mbox{\boldmath $u$}}
+\newcommand{\bnu}{\mbox{\boldmath $\nu$}}
+%\newcommand{\boldeta}{\mbox{\boldmath $\eta$}}
+\newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
+\def\cH{{\mathcal H}}
+
+\newcommand{\const}{\mbox{const}}
+\newcommand{\La}{\Lambda}
+\newcommand{\Sig}{\Sigma}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\pt}{\partial}
+\newcommand{\rd}{{\rm d}}
+\newcommand{\rdA}{{\rm d A}}
+\newcommand{\bR}{{\mathbb R}}
+
+\newcommand{\bZ}{{\mathbb Z}}
+\newcommand{\bke}[1]{\left( #1 \right)}
+\newcommand{\bkt}[1]{\left[ #1 \right]}
+\newcommand{\bket}[1]{\left\{ #1 \right\}}
+
+\newcommand{\bka}[1]{\left\langle #1 \right\rangle}
+\newcommand{\vect}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\tp}[1]{{#1}^\dagger}
+\newcommand{\pbb}[1]{\biggl({#1}\biggr)}
+\newcommand{\pBB}[1]{\Biggl({#1}\Biggr)}
+
+\newcommand{\fn}{{\mathfrak n}}
+
+
+\newcommand{\ba}{{\bf{a}}}
+
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\bEq}{\end{equation}}
+\newcommand{\del}{\partial}
+\newcommand{\bE}{\mathbb{E}}
+\newcommand{\fd}{{\mathfrak d}}
+
+\newcommand{\bx}{{\bf{x}}}
+\newcommand{\by}{{\bf{y}}}
+%\newcommand{\bu}{{\bf{u}}}
+%\newcommand{\bv}{{\bf{v}}}
+%\newcommand{\bw}{{\bf{w}}}
+
+\newcommand{\bz} {{\bf {z}}}
+\newcommand{\bt} {{\bf t }}
+
+\newcommand{\bh}{{\bf{h}}}
+
+
+\newcommand{\wG}{{\widehat G}}
+\newcommand{\al}{\alpha}
+\newcommand{\de}{\delta}
+
+
+\newcommand{\hp}[1]{with $ #1 $-high probability}
+
+
+\newcommand{\e}{{\varepsilon}}
+
+\newcommand{\ga}{{\gamma}}
+\newcommand{\Ga}{{\Gamma}}
+\newcommand{\la}{\lambda}
+\newcommand{\Om}{{\Omega}}
+\newcommand{\om}{{\omega}}
+\newcommand{\si}{\sigma}
+\renewcommand{\th}{\theta}
+\newcommand{\ze}{\zeta}
+
+\newcommand{\qqq}[1]{\llbracket{#1}\rrbracket}
+
+\newcommand{\cL}{{\cal L}}
+\newcommand{\cE}{{\cal E}}
+\newcommand{\cG}{{\cal G}}
+\newcommand{\cP}{{\cal P}}
+\newcommand{\LL}{{\rm L}}
+\newcommand{\PP}{{\rm P}}
+\newcommand{\QQ}{{\rm Q}}
+\newcommand{\cC}{{\cal C}}
+
+\newcommand{\scG}{{\mathscr G}}
+
+\newcommand{\cQ}{{\cal Q}}
+\newcommand{\cK}{{\cal K}}
+
+\newcommand{\cN}{{\cal N}}
+
+%\newcommand{\bC}{{\mathbb C}}
+\newcommand{\pd}{{\partial}}
+\newcommand{\nb}{{\nabla}}
+\newcommand{\lec}{\lesssim}
+
+\newcommand{\rU}{{\rm U}}
+
+\newcommand{\ph}{{\varphi}}
+
+
+\def\cA{{\mathcal A}}
+\def\cO{{\mathcal O}}
+\def\cW{{\mathcal W}}
+
+\newcommand{\fa}{{\mathfrak a}}
+\newcommand{\fb}{{\mathfrak b}}
+\newcommand{\fw}{{\mathfrak w}}
+
+
+\newcommand{\Ai}{{\text{Ai} }}
+
+\newcommand{\cS}{{\mathcal S}}
+
+
+\newcommand{\br}{{\bf{r}}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+
+
+\renewcommand{\div}{\mathop{\mathrm{div}}}
+\newcommand{\curl}{\mathop{\mathrm{curl}}}
+\newcommand{\spt}{\mathop{\mathrm{spt}}}
+\newcommand{\wkto}{\rightharpoonup}
+\newenvironment{pf}{{\bf Proof.}} {\hfill\qed}
+
+\newcommand{\lv}{{\bar v}}
+\newcommand{\lp}{{\bar p}}
+
+
+
+\renewcommand{\S}{\mathbb S}
+\newcommand{\T}{\mathbb T}
+\newcommand{\V}{\mathbb V}
+%\newcommand{\bU}{ {\bf  U}}
+\renewcommand{\S}{[\bf S]}
+\newcommand{\bT}{\T}
+\newcommand{\non}{\nonumber}
+\newcommand{\wH}{K}
+
+\newcommand{\ttau}{\vartheta}
+
+
+\usepackage{amsmath} %[intlimits]
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\renewcommand\labelenumi{(\roman{enumi})}
+
+\setlength{\unitlength}{1cm}
+
+\def\RR{{\mathbb R}}
+\def\ZZ{{\mathbb Z}}
+
+
+
+\renewcommand{\b}[1]{\bm{\mathrm{#1}}} %bold
+\newcommand{\bb}{\mathbb} %blackboard bold
+\renewcommand{\r}{\mathrm}
+\renewcommand{\ss}{\mathsf} %sans serif
+\renewcommand{\cal}{\mathcal}
+\newcommand{\fra}{\mathfrak}
+\newcommand{\ul}[1]{\underline{#1} \!\,} %underline
+\newcommand{\ol}[1]{\overline{#1} \!\,} %overline
+\newcommand{\wh}{\widehat}
+\newcommand{\mG}{\mathcal G}
+
+\newcommand{\me}{\mathrm{e}} %\newcommand{\me}{\mathrm{e}}
+
+
+\newcommand{\s}{\mspace{-0.9mu}} 		%empty space for tensor indices
+\newcommand{\col}{\mathrel{\mathop:}}
+\newcommand{\deq}{\mathrel{\mathop:}=}
+\newcommand{\eqd}{=\mathrel{\mathop:}}
+\newcommand{\id}{\mspace{2mu}\mathrm{i}\mspace{-0.6mu}\mathrm{d}} %identity map
+\newcommand{\umat}{\mathbbmss{1}} %unit matrix
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\floor}[1] {\lfloor {#1} \rfloor}
+\newcommand{\ceil}[1]  {\lceil  {#1} \rceil}
+\newcommand{\ind}[1]{\b 1 (#1)}%{\umat_{\{#1\}}}
+\newcommand{\indb}[1]{\b 1 \pb{#1}}
+\newcommand{\indB}[1]{\b 1 \pB{#1}}
+\newcommand{\indbb}[1]{\b 1 \pbb{#1}}
+\newcommand{\indBB}[1]{\b 1 \pBB{#1}}
+\newcommand{\inda}[1]{\b 1 \pa{#1}}%{\umat_{\{#1\}}}
+
+\renewcommand{\le}{\leq}
+\renewcommand{\ge}{\geq}
+
+%\renewcommand{\dagger}{*}
+
+%%%%%%%%%%%%%%%%%%%   blackboard bold letters   %%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+
+\newcommand{\IE}{\mathbb{I} \mathbb{E}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%   Parantheses   %%%%%%%%%%%%%%%%%%%%%
+\newcommand{\p}[1]{({#1})}
+\newcommand{\pb}[1]{\bigl({#1}\bigr)}
+\newcommand{\pB}[1]{\Bigl({#1}\Bigr)}
+\newcommand{\pa}[1]{\left({#1}\right)}
+
+\newcommand{\qb}[1]{\bigl[{#1}\bigr]}
+\newcommand{\qB}[1]{\Bigl[{#1}\Bigr]}
+\newcommand{\qbb}[1]{\biggl[{#1}\biggr]}
+\newcommand{\qBB}[1]{\Biggl[{#1}\Biggr]}
+\newcommand{\qa}[1]{\left[{#1}\right]}
+
+\newcommand{\h}[1]{\{{#1}\}}
+\newcommand{\hb}[1]{\bigl\{{#1}\bigr\}}
+\newcommand{\hB}[1]{\Bigl\{{#1}\Bigr\}}
+\newcommand{\hbb}[1]{\biggl\{{#1}\biggr\}}
+\newcommand{\hBB}[1]{\Biggl\{{#1}\Biggr\}}
+\newcommand{\ha}[1]{\left\{{#1}\right\}}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\absb}[1]{\bigl\lvert #1 \bigr\rvert}
+\newcommand{\absB}[1]{\Bigl\lvert #1 \Bigr\rvert}
+\newcommand{\absbb}[1]{\biggl\lvert #1 \biggr\rvert}
+\newcommand{\absBB}[1]{\Biggl\lvert #1 \Biggr\rvert}
+\newcommand{\absa}[1]{\left\lvert #1 \right\rvert}
+
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\normb}[1]{\bigl\lVert #1 \bigr\rVert}
+\newcommand{\normB}[1]{\Bigl\lVert #1 \Bigr\rVert}
+\newcommand{\normbb}[1]{\biggl\lVert #1 \biggr\rVert}
+\newcommand{\normBB}[1]{\Biggl\lVert #1 \Biggr\rVert}
+\newcommand{\norma}[1]{\left\lVert #1 \right\rVert}
+
+\newcommand{\avg}[1]{\langle #1 \rangle}
+\newcommand{\avgb}[1]{\bigl\langle #1 \bigr\rangle}
+\newcommand{\avgB}[1]{\Bigl\langle #1 \Bigr\rangle}
+\newcommand{\avgbb}[1]{\biggl\langle #1 \biggr\rangle}
+\newcommand{\avgBB}[1]{\Biggl\langle #1 \Biggr\rangle}
+\newcommand{\avga}[1]{\left\langle #1 \right\rangle}
+
+\newcommand{\scalar}[2]{\langle{#1} \mspace{2mu}, {#2}\rangle}
+\newcommand{\scalarb}[2]{\bigl\langle{#1} \mspace{2mu}, {#2}\bigr\rangle}
+\newcommand{\scalarB}[2]{\Bigl\langle{#1} \,\mspace{2mu},\, {#2}\Bigr\rangle}
+\newcommand{\scalarbb}[2]{\biggl\langle{#1} \,\mspace{2mu},\, {#2}\biggr\rangle}
+\newcommand{\scalarBB}[2]{\Biggl\langle{#1} \,\mspace{2mu},\, {#2}\Biggr\rangle}
+\newcommand{\scalara}[2]{\left\langle{#1} \,\mspace{2mu},\, {#2}\right\rangle}
+
+\newcommand{\com}[2]{[{#1} \mspace{2mu}, {#2}]}
+\newcommand{\comb}[2]{\bigl[{#1} \mspace{2mu}, {#2}\bigr]}
+\newcommand{\comB}[2]{\Bigl[{#1} \,\mspace{2mu},\, {#2}\Bigr]}
+\newcommand{\combb}[2]{\biggl[{#1} \,\mspace{2mu},\, {#2}\biggr]}
+\newcommand{\comBB}[2]{\Biggl[{#1} \,\mspace{2mu},\, {#2}\Biggr]}
+\newcommand{\coma}[2]{\left[{#1} \,\mspace{2mu},\, {#2}\right]}
+
+\newcommand{\poi}[2]{\{{#1} \mspace{2mu}, {#2}\}}
+\newcommand{\poib}[2]{\bigl\{{#1} \mspace{2mu}, {#2}\bigr\}}
+\newcommand{\poiB}[2]{\Bigl\{{#1} \,\mspace{2mu},\, {#2}\Bigr\}}
+\newcommand{\poibb}[2]{\biggl\{{#1} \,\mspace{2mu},\, {#2}\biggr\}}
+\newcommand{\poiBB}[2]{\Biggl{\{#1} \,\mspace{2mu},\, {#2}\Biggr\}}
+\newcommand{\poia}[2]{\left\{{#1} \,\mspace{2mu},\, {#2}\right\}}
+
+
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\brab}[1]{\bigl\langle #1 \bigr|}
+\newcommand{\braB}[1]{\Bigl\langle #1 \Bigr|}
+\newcommand{\brabb}[1]{\biggl\langle #1 \biggr|}
+\newcommand{\braBB}[1]{\Biggl\langle #1 \Biggr|}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\ketb}[1]{\bigl| #1 \bigr\rangle}
+\newcommand{\ketB}[1]{\Bigl| #1 \Bigr\rangle}
+\newcommand{\ketbb}[1]{\biggl| #1 \biggr\rangle}
+\newcommand{\ketBB}[1]{\Biggl| #1 \Biggr\rangle}
+
+\newcommand{\dscalar}[2]{\langle #1 \,|\, #2 \rangle}
+\newcommand{\dscalarb}[2]{\bigl\langle #1 \,\big|\, #2 \bigr\rangle}
+\newcommand{\dscalarB}[2]{\Bigl\langle #1 \,\Big|\, #2 \Bigr\rangle}
+\newcommand{\dscalarbb}[2]{\biggl\langle #1 \,\bigg|\, #2 \biggr\rangle}
+\newcommand{\dscalarBB}[2]{\Biggl\langle #1 \,\Bigg|\, #2 \Biggr\rangle}
+
+\newcommand{\dexp}[3]{\langle #1 \,|\, #2 \,|\, #3 \rangle}
+\newcommand{\dexpb}[3]{\bigl\langle #1 \,\big|\, #2 \,\big|\, #3 \bigr\rangle}
+\newcommand{\dexpB}[3]{\Bigl\langle #1 \,\Big|\, #2 \,\Big|\, #3 \Bigr\rangle}
+\newcommand{\dexpbb}[3]{\biggl\langle #1 \,\bigg|\, #2 \,\bigg|\, #3 \biggr\rangle}
+\newcommand{\dexpBB}[3]{\Biggl\langle #1 \,\Bigg|\, #2 \,\Bigg|\, #3 \Biggr\rangle}
+
+
+\DeclareMathOperator*{\slim}{s-lim}
+\DeclareMathOperator*{\wlim}{w-lim}
+\DeclareMathOperator*{\wstarlim}{w*-lim}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\cotanh}{cotanh}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\So}{SO}
+\DeclareMathOperator{\su}{su}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\dom}{\mathcal{D}}
+\DeclareMathOperator{\domq}{\mathcal{Q}}
+\DeclareMathOperator{\ran}{\mathcal{R}}
+\DeclareMathOperator{\keroperator}{\mathcal{N}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\sgn}{sgn}
+\renewcommand{\ker}{\keroperator}
+\DeclareMathOperator{\OO}{O}
+\DeclareMathOperator{\oo}{o}
+\DeclareMathOperator{\UU}{U}
+
+\DeclareMathOperator{\bA}{\mathbf{A}}
+\DeclareMathOperator{\bC}{\mathbf{C}}
+\DeclareMathOperator{\bD}{\mathbf{D}}
+\DeclareMathOperator{\bS}{\mathbf{S}}
+\DeclareMathOperator{\bv}{\mathbf{v}}
+\DeclareMathOperator{\bu}{\mathbf{u}}
+\DeclareMathOperator{\bw}{\mathbf{w}}
+
+\DeclareMathOperator{\bbC}{\mathbb{C}}
+\DeclareMathOperator{\bbE}{\mathbb{E}}
+\DeclareMathOperator{\bbN}{\mathbb{N}}
+\DeclareMathOperator{\bbP}{\mathbb{P}}
+
+\DeclareMathOperator{\sI}{\mathcal{I}}
+\DeclareMathOperator{\sG}{\mathcal{G}}
+\DeclareMathOperator{\sW}{\mathcal{W}}
+
+\DeclareMathOperator{\one}{\mathbf{1}}
+\DeclareMathOperator{\lc}{\lceil}
+\DeclareMathOperator{\rc}{\rceil}
+\DeclareMathOperator{\lf}{\lfloor}
+\DeclareMathOperator{\rf}{\rfloor}
+\DeclareMathOperator{\Var}{\mathbf{Var}}
+%\DeclareMathOperator{\Re}{\textnormal{Re}}
+%\DeclareMathOperator{\Im}{\im}
+
+\newcommand{\inprod}[1]{\langle#1\rangle}
+\newcommand*{\esup}[1]{\overline{#1}}
+\newcommand*{\cl}[1]{\overline{#1}}
+\newcommand*{\conj}[1]{\overline{#1}}
+
+
+\theoremstyle{plain} %plain, definition, remark
+
+
+\let\cIm\Im
+\let\cRe\Re
+\renewcommand{\Im}{{\rm{Im}}}
+\renewcommand{\Re}{{\rm{Re}}}
+
+\newcommand{\cop}{\color{magenta}}
+\newcommand{\cor}{\color{red}}
+\newcommand{\cob}{\color{blue}}
+\newcommand{\nc}{\normalcolor}
+
+\def\bR{{\mathbb R}}
+\def\bZ{{\mathbb Z}}
+%\def\bC{{\mathbb C}}
+\def\bN{{\mathbb N}}
+\newcommand\Si{S}
+\newcommand{\Tr}{\mbox{Tr\,}}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{2}
+\newcommand{\bq}{{\bf q}}
+%\newcommand{\fa}{{\mathfrak a}} 
+%\newcommand{\fb}{{\mathfrak b}} 
+\newcommand{\bk}{{\bf{k}}}
+%\newcommand{\fw}{{\mathfrak w}} 
+%\newcommand{\br}{{\bf r}}
+\def\xip{{\xi'}}
+\newcommand{\cM}{{\cal M}}
+\newcommand{\f}[1]{\boldsymbol{\mathrm{#1}}} 
+\newcommand{\for}{\qqquad \text{for} \quad}
+\newcommand{\where}{\qqquad \text{where} \quad}
+
+\allowdisplaybreaks
+\title{Local laws of separable covariance matrices}
+\author{
+  Bin Qin\thanks{Department of Mathematics, Tsinghua University. E-mail: qb21@mails.tsinghua.edu.cn}
+  \and 
+  Zhili Wang\thanks{Qiuzhen College, Tsinghua University. E-mail: wang-zl21@mails.tsinghua.edu.cn}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+In this paper, we aim to prove the local laws of separable covariance matrices of the form $\mathcal Q:=A^{1/2}XBX^*A^{1/2}$, where $X=(x_{i\mu})$ is an $n\times N$ random matrix whose entries $x_{i\mu}$ are {\it{i.i.d.}} random variables satisfying $\expect[x_{i\mu}]=0,\expect[|x_{i\mu}|^{2}]=N^{-1}$, and $A,B$ are deterministic non-negative definite symmetric (or Hermitian) matrices. Following the method provided in \cite{isotropic}, we have finished the stochastic step, i.e., establishing the self-consistence equation for separable covariance matrices. Once we finish the deterministic step in the near future, we would have proved the local laws of separable covariance matrices without the technical assumption $\expect[x_{i\mu}^{3}]=0$, which is essentially used in the previous results in \cite{yang2019edge}.
+\end{abstract}
+
+\section{Introduction}
+
+In multivariate statistics, we often aim to study the distribution of a centered random vector $\mathbf y\in \mathbb R^n$. Suppose we have observed its $i.i.d.$ copies $\mathbf y_i$, $ i = 1, \cdots, N$, our data can be expressed by an $n\times N$ matrix $Y:=(\mathbf y_1,\cdots,\mathbf y_N)$. The sample covariance matrix $\mathcal Q := N^{-1}YY^*= N^{-1}\sum_i \mathbf y_i \mathbf y_i^*$ is the simplest estimator for the covariance matrix $\Sigma:=\mathbb E \mathbf y \mathbf y^*$. In fact, if the dimension $n$ of the data is fixed, then $\mathcal Q$ converges almost surely to $\Sigma$ as $N\to \infty$. However, in many modern applications, such as statistics \cite{DT2011,IJ,IJ2,IJ2008}, economics \cite{Onatski2} and population genetics \cite{Genetics},  the dimension of the data would be so large that we can not make enough observations for $\mathcal Q$ to converge to $\Sigma$. Specifically, we constrain ourselves to the case $d_N:=n/N\in[\tau,\tau^{-1}]$ for some $\tau>0$. In this setting, $\Sigma$ cannot be estimated through $Q$ directly due to the so-called {\it curse of dimensionality}. Yet, some properties of $\Sigma$ can be inferred from the eigenvalue statistics of $\mathcal Q$. 
+
+Without loss of generality, we may assume that the row indices of the data matrix correspond to the spatial locations and the column indices correspond to the observation times. Then the data model $Y:=A^{1/2}X$ corresponds to observing independent samples at $N$ different times, where the data matrix $X=(x_{ij})$ is an $n \times N$ random matrix with $i.i.d.$ entries such that $\mathbb E x_{11}=0$ and $\mathbb E |x_{11}|^2 = N^{-1}$, and $A$ is an $n\times n$ deterministic non-negative definite symmetric (or Hermitian) matrix. If the sampling data has no time correlation, this data model would be sufficient. We then define the sample covariance matrix by $\mathcal Q:=A^{1/2}XX^*A^{1/2}$. On dimensionality, we assume that $n/N \to d \in (0,\infty)$ as $N\to \infty$. It is well-known that the empirical spectral distribution (ESD) of $\mathcal Q$ converges to the (deformed) Marchenko-Pastur (MP) law \cite{MP}, giving rich information about its eigenvalues.
+
+However, the spatio-temporal sampling data is commonly collected in environmental study \cite{MF2006,KJ1999,LMS2008,MG2003} and wireless communications \cite{RMT_Wireless}. Motivated by this fact, we shall consider a separable data model $Y=A^{1/2}XB^{1/2}$, where $A$ and $B$ are respectively $n\times n$ and $N\times N$ deterministic non-negative definite symmetric (or Hermitian) matrices. We emphasize that $A$ and $B$ are not necessarily diagonal, which means that the entries are correlated both in space and in time. The name ``separable" is because the joint covariance of $Y$, viewed as an $(Nn)$-dimensional vector, is given by a separable form $A\otimes B$. 
+In particular, if the entries of $X$ are Gaussian, then the joint distribution of $Y$ is $\mathcal N_{Nn}(0, A\otimes B)$. Note that the separable model describes a process where the time correlation does not depend on the spatial location and the spatial correlation does not depend on time, i.e. there is no space-time interaction.
+
+The separable covariance matrix is defined as $\mathcal Q:=YY^*=A^{1/2}XB X^* A^{1/2}$. It has been proved to be very useful for various applications. For example, in wireless communications, it was shown in \cite{Verdu} that an estimate of the capacity is directly given by various information of the largest eigenvalue. The spectral properties of separable covariance matrices have been investigated in some recent works, see e.g. \cite{PRE,  Karoui2009, Separable, WANG2014, Zhang_thesis}. However, the local laws for separable covariance matrices have not been completely established. When $A$ and $B$ are diagonal, an optimal local law was proved in \cite{Alt_Gram,AEK_Gram} under the arbitrarily high moments assumption. In the general case where $A$ and $B$ are non-diagonal, an optimal local law was proved in \cite{yang2019edge} under a fourth-moment tail assumption and a technical assumption $\expect[x_{11}^3]=0$. In this paper, we aim to remove the technical assumption and prove the optimal local law under the bounded support condition.
+
+\section{Model and Main Result}\label{main_result}
+
+\subsection{Separable covariance matrices}
+
+We consider a class of separable covariance matrices of the form $\mathcal Q_1:=A^{1/2}XBX^*A^{1/2}$, where $A$ and $B$ are deterministic non-negative definite symmetric (or Hermitian) matrices. Note that $A$ and $B$ are not necessarily diagonal. We assume that $X=(x_{i\mu})$ is an $n\times N$ random matrix whose entries $x_{i\mu}$ are {\it{i.i.d.}} random variables satisfying 
+\begin{equation}\label{assm1}
+\expect x_{i\mu} =0, \ \quad \ \expect \left| x_{i\mu}\right|^{2} = N^{-1},
+\end{equation}
+For definiteness, in this paper we focus on the real case, i.e.\;the random variable $x_{11}$ is real. However, we remark that our proof can be applied to the complex case after minor modifications if we assume in addition that $\Re\, x_{11}$ and $\Im\, x_{11}$ are independent centered random variables with variance $\frac{1}{2N}$. 
+We will also use the $N \times N$ matrix $\mathcal Q_2:=B^{1/2}X^* A X B^{1/2}$. 
+We assume that the aspect ratio $d_N:= n/N$ satisfies $\tau \le d_N \le \tau^{-1}$ for some constant $0<\tau <1$. Without loss of generality, by switching the roles of $\mathcal Q_1$ and $\mathcal Q_2$ if necessary, 
+we can assume that 
+\begin{equation}
+ \tau \le d_N \le 1 \ \ \text{ for all } N. \label{assm2}
+ \end{equation}
+For simplicity of notations, we will often abbreviate $d_N$ as $d$ in this paper. We denote the eigenvalues of $\mathcal Q_1$ and $\mathcal Q_2$ in descending order by $\lambda_{1}(\mathcal Q_1)\geq \ldots \geq \lambda_{n}(\mathcal Q_1)$ and $\lambda_{1}(\mathcal Q_2) \geq \ldots \geq \lambda_N(\mathcal Q_2)$. Since $\mathcal Q_1$ and $\mathcal Q_2$ share the same nonzero eigenvalues, we will for simplicity write $\lambda_j$, $1\le j \le N\wedge n$, to denote the $j$-th eigenvalue of both $\mathcal Q_1$ and $\mathcal Q_2$ without causing any confusion. 
+
+We assume that $A$ and $B$ have eigendecompositions
+$$A= U\Sigma U^*, \quad B= V\SH V^* ,\quad \Sigma=\text{diag}(\sigma_1, \ldots, \sigma_n), \quad \ST=\text{diag}(\st_1, \ldots, \st_N),
+$$
+where
+$$\sigma_1 \ge \sigma_2 \ge \ldots \ge \sigma_n \ge 0, \quad \st_1 \ge \st_2 \ge \ldots \ge \st_N \ge 0.$$
+
+We denote the empirical spectral densities (ESD) of $A$ and $B$ by
+\begin{equation}\label{sigma_ESD}
+\pi_A\equiv \pi_A^{(n)} := \frac{1}{n} \sum_{i=1}^n \delta_{\sigma_i},\quad \pi_B\equiv \pi_B^{(N)} := \frac{1}{N} \sum_{i=1}^N \delta_{\st_i}.
+\end{equation}
+We assume that there exists a small constant $0<\tau<1$ such that for all $N$ large enough,
+\begin{equation}\label{assm3}
+\max\{\sigma_1, \st_1\} \le \tau^{-1}, \quad \max\left\{\pi_A^{(n)}([0,\tau]), \pi_B^{(N)}([0,\tau])\right\} \le 1 - \tau .
+\end{equation}
+The first condition means that the operator norms of $A$ and $B$ are bounded by $\tau^{-1}$, and the second condition means that the spectrums of $A$ and $B$ do not concentrate at zero.
+
+
+We summarize our basic assumptions here for future reference.
+\begin{assumption}\label{assm_big1}
+We assume that $X$ is an $n\times N$ random matrix with real $i.i.d.$ entries satisfying (\ref{assm1}), $A$ and $B$ are deterministic non-negative definite symmetric matrices satisfying (\ref{assm3}), and $d_N$ satisfies \eqref{assm2}.
+\end{assumption}
+
+
+\subsection{Resolvents and limiting law}
+
+In this paper, we will study the eigenvalue statistics of $\mathcal Q_{1}$ and $\mathcal Q_2$ through their {\it{resolvents}} (or  {\it{Green's functions}}). It is equivalent to study the matrices 
+$$
+{\mathcal Q}_1(X):=\Sigma^{1/2} U^{*}XBX^*U\Sigma^{1/2}, \quad {\mathcal Q}_2(X):=\ST^{1/2}V^*X^* A X V\ST^{1/2}.
+$$
+Before studying on the more precise local law of resolvents, we will first propose a priori bound on the spectral norm of $\mathcal Q_{1}$, which will be useful in the proof of our main result.
+\begin{lemma}\label{priori}
+Under Assumption \ref{assm1}, $\left\|\mathcal Q_{1}\right\|\prec 1.$
+\end{lemma}
+\begin{proof}
+Its proof follows from a standard
+application of the F\"{u}redi-Koml\'{o}s argument (see e.g.\cite{anderson2010introduction} , Section 2.1.6).
+
+\end{proof}
+In this paper, we shall denote the upper half complex plane and the right half real line by 
+$$\mathbb C_+:=\{z\in \mathbb C: \mathrm{Im}\ z>0\}, \quad \mathbb R_+:=[0,\infty).$$ 
+\begin{definition}[Resolvents]\label{resol_not}
+For $z = E+ \ii \eta \in \mathbb C_+,$ we define the resolvents for $ {\mathcal Q}_{1,2}$ as
+\begin{equation}\label{def_green}
+\mathcal G_1(X,z):=\left({\mathcal Q}_1(X) -z\right)^{-1} , \ \ \ \mathcal G_2 (X,z):=\left({\mathcal Q}_2(X)-z\right)^{-1} .
+\end{equation}
+ We denote the ESD $\rho^{(n)}$ of ${\mathcal Q}_{1}$ and its Stieltjes transform as
+$$
+\rho\equiv \rho^{(n)} := \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i({\mathcal Q}_1)},\quad m(z)\equiv m^{(n)}(z):=\int \frac{1}{x-z}\rho_{1}^{(n)}(\dd x)=\frac{1}{n} \mathrm{Tr} \, \mathcal G_1(z).
+$$
+We also introduce the following quantities:
+$$m_1(z)\equiv m_1^{(n)}(z):= \frac{1}{N}\sum_{i=1}^n\sigma_i (\mathcal G_1(z) )_{ii},\quad m_2(z)\equiv m_2^{(N)}(x):=\frac{1}{N}\sum_{\mu=1}^N \st_\mu (\mathcal G_2(z) )_{\mu\mu}. $$
+\end{definition}
+
+
+It was shown in \cite{Separable} that if $d_N \to d \in (0,\infty)$ and $\pi_A^{(n)}$, $\pi_B^{(N)}$ converge to certain probability distributions, then almost surely $\rho^{(n)}$ converges to a deterministic distributions $ \rho_{\infty}$. We now describe it through the Stieltjes transform
+$$m_{\infty}(z):=\int_{\mathbb R} \frac{\rho_{\infty}(\dd x)}{x-z}, \quad z \in \mathbb C_+.$$
+For any finite $N$ and $z\in \mathbb C_+$, we define $(m^{(N)}_{1c}(z),m^{(N)}_{2c}(z))\in \mathbb C_+^2$ as the unique solution to the system of self-consistent equations
+\begin{equation}\label{separa_m12}
+{m^{(n)}_{1c}(z)} = d_N \int\frac{x}{-z\left[1+xm^{(N)}_{2c}(z) \right]} \pi_A^{(n)}(\dd x), \quad  {m^{(N)}_{2c}(z)} =  \int\frac{x}{-z\left[1+xm^{(N)}_{1c}(z) \right]} \pi_B^{(N)}(\dd x).
+\end{equation}
+Then we define
+\begin{equation}\label{def_mc}
+m_c(z)\equiv m_c^{(n)}(z):= \int\frac{1}{-z\left[1+xm^{(N)}_{2c}(z) \right]} \pi_A^{(n)}(\dd x).
+\end{equation}
+It is easy to verify that $m_c^{(n)}(z)\in \mathbb C_+$ for $z\in \mathbb C_+$. Letting $\eta \downarrow 0$, we can obtain a probability measure $\rho_{c}^{(n)}$ with the inverse formula
+\begin{equation}\label{ST_inverse}
+\rho_{c}^{(n)}(E) = \lim_{\eta\downarrow 0} \frac{1}{\pi}\Im\, m^{(n)}_{c}(E+\ii \eta).
+\end{equation}
+If $d_N \to d \in (0,\infty)$ and $\pi_A^{(n)}$, $\pi_B^{(N)}$ converge to certain probability distributions, then $m_c^{(n)}$ also converges and we define
+$$m_{\infty}(z):=\lim_{N\to \infty} m_c^{(n)}(z), \ \ z \in \mathbb C_+.$$
+Letting $\eta \downarrow 0$, we can recover the asymptotic eigenvalue density $ \rho_{\infty}$ with
+\begin{equation}\label{ST_inverse_limit}
+\rho_{\infty}(E) = \lim_{\eta\downarrow 0} \frac{1}{\pi}\Im\, m_{\infty}(E+\ii \eta).
+\end{equation}
+It is also easy to see that $\rho_\infty$ is the weak limit of $\rho_{c}^{(n)}$. 
+
+The above definitions of $m_c^{(n)}$, $\rho_c^{(n)}$, $m_\infty$ and $\rho_\infty$ make sense due to the following theorem. Throughout the rest of this paper, we often omit the super-indices $(n)$ and $(N)$ from our notations. 
+
+
+\begin{theorem} [Existence, uniqueness, and continuous density]
+For any $z\in \mathbb C_+$, there exists a unique solution $(m_{1c},m_{2c})\in \mathbb C_+^2$ to the systems of equations in (\ref{separa_m12}). The function $m_c$ in (\ref{def_mc}) is the Stieltjes transform of a probability measure $\mu_c$ supported on $\mathbb R_+$. Moreover, $\mu_c$ has a continuous derivative $\rho_c(x)$ on $(0,\infty)$, which is defined by \eqref{ST_inverse}.
+\end{theorem}
+\begin{proof}
+See {\cite[Theorem 1.2.1]{Zhang_thesis}}, {\cite[Theorem 2.4]{Hachem2007}} and {\cite[Theorem 3.1]{Separable_solution}}.
+\end{proof}
+
+Now we go back to study the equations in (\ref{separa_m12}). If we define the function
+% Corresponding to the equation in (\ref{separa_m12}), we define the function 
+\begin{equation}\label{separable_MP}
+f(z,\al):=- \al + \int\frac{x}{-z+xd_N \int\frac{t}{1+t\al} \pi_A(\dd t)} \pi_B(\dd x) ,
+\end{equation}
+then $m_{2c}(z)$ can be characterized as the unique solution to the equation $f(z,\al)=0$ of $\al$ with $\Im \, \al> 0$, and $m_{1c}(z)$ is defined using the first equation in \eqref{separa_m12}.
+%as $$m_{1c}(z) = d_N \int\frac{x}{-z\left[1+xm_{2c}(z) \right]} \pi_A(\dd x).$$
+Moreover, $m_{1,2c}(z)$ are the Stieltjes transforms of densities $\rho_{1,2c}$:
+$$\rho_{1,2c}(E) = \lim_{\eta\downarrow 0} \frac{1}{\pi}\Im\, m_{1,2c}(E+\ii \eta).$$
+Then we have the following result.
+
+\begin{lemma}\label{lambdar}%[Support of the deformed MP law]
+The densities $\rho_{c}$ and $\rho_{1,2c}$ all have the same support on $(0,\infty)$, which is a union of intervals: %connected components:
+\begin{equation}\label{support_rho1c}
+{\rm{supp}} \, \rho_{c} \cap (0,\infty) ={\rm{supp}} \, \rho_{1,2c} \cap (0,\infty) = \bigcup_{k=1}^p [a_{2k}, a_{2k-1}] \cap (0,\infty),
+\end{equation}
+where $p\in \mathbb N$ depends only on $\pi_{A,B}$. Moreover, $(x,\al)=(a_k, m_{2c}(a_k))$ are the real solutions to the equations
+\begin{equation}
+f(x,\al)=0, \ \ \text{and} \ \ \frac{\partial f}{\partial \al}(x,\al) = 0. \label{equationEm2}
+\end{equation}
+Moreover, we have $m_{1c}(a_1) \in (-\wt \sigma_1^{-1}, 0)$ and $m_{2c}(a_1) \in (-\sigma_1^{-1}, 0)$. %Finally, under (\ref{assm2}) and (\ref{assm3}), we have $a_1 \le C$ for some constant $C>0$. 
+\end{lemma}
+\begin{proof}
+See Section 3 of \cite{Separable_solution}.
+\end{proof}
+ 
+ We shall call $a_k$ the spectral edges. In particular, we will focus on the rightmost edge $\lambda_+ := a_1$. 
+
+Now we make the following assumption: there exists a constant $\tau>0$ such that %{\color{red}(can we remove one of the conditions?)}
+\begin{equation}\label{assm_gap}
+1 + m_{1c}(\lambda_+) \wt \sigma_1 \ge \tau, \quad 1 + m_{2c}(\lambda_+) \sigma_1\ge \tau. 
+\end{equation}
+This assumption guarantees a regular square-root behavior of the spectral densities $\rho_{1,2c}$ near $\lambda_+$ .
+
+
+\subsection{Notations}
+
+
+We will use the following notion of stochastic domination, which was first introduced in \cite{Average_fluc} and subsequently used in many works on random matrix theory, such as \cite{isotropic,principal,local_circular,Delocal,Semicircle,Anisotropic}. It simplifies the presentation of the results and proofs by systematizing statements of the form ``$\xi$ is bounded by $\zeta$ with high probability up to a small power of $N$".
+
+\begin{definition}[Stochastic domination]\label{stoch_domination}
+%\begin{itemize}
+%\item[(i)] 
+(i) Let
+\[\xi=\left(\xi^{(N)}(u):N\in\bbN, u\in U^{(N)}\right),\hskip 10pt \zeta=\left(\zeta^{(N)}(u):N\in\bbN, u\in U^{(N)}\right)\]
+be two families of nonnegative random variables, where $U^{(N)}$ is a possibly $N$-dependent parameter set. We say $\xi$ is stochastically dominated by $\zeta$, uniformly in $u$, if for any fixed (small) $\epsilon>0$ and (large) $D>0$, 
+\[\sup_{u\in U^{(N)}}\bbP\left[\xi^{(N)}(u)>N^\epsilon\zeta^{(N)}(u)\right]\le N^{-D}\]
+for large enough $N\ge N_0(\epsilon, D)$, and we shall use the notation $\xi\prec\zeta$. Throughout this paper, the stochastic domination will always be uniform in all parameters that are not explicitly fixed (such as matrix indices, and $z$ that takes values in some compact set). Note that $N_0(\epsilon, D)$ may depend on quantities that are explicitly constant, such as $\tau$ in Assumption \ref{assm_big1} and \eqref{assm_gap}. If for some complex family $\xi$ we have $|\xi|\prec\zeta$, then we will also write $\xi \prec \zeta$ or $\xi=\OO_\prec(\zeta)$.
+%\item[(ii)] 
+
+(ii) We extend the definition of $\OO_\prec(\cdot)$ to matrices in the weak operator sense as follows. Let $A$ be a family of random matrices and $\zeta$ be a family of nonnegative random variables. Then $A=\OO_\prec(\zeta)$ means that $\left|\left\langle\mathbf v, A\mathbf w\right\rangle\right|\prec\zeta \| \mathbf v\|_2 \|\mathbf w\|_2 $ uniformly in any deterministic vectors $\mathbf v$ and $\mathbf w$. Here and throughout the following, whenever we say ``uniformly in any deterministic vectors", we mean that ``uniformly in any deterministic vectors belonging to certain fixed set of cardinality $N^{\OO(1)}$".
+%\item[(iv)] 
+
+(iii) We say an event $\Xi$ holds with high probability if for any constant $D>0$, $\mathbb P(\Xi)\ge 1- N^{-D}$ for large enough $N$.
+%\end{itemize}
+\end{definition}
+
+The following lemma collects basic properties of stochastic domination $\prec$, which will be used tacitly in the proof.
+
+\begin{lemma}[Lemma 3.2 in \cite{isotropic}]\label{lem_stodomin}
+Let $\xi$ and $\zeta$ be families of nonnegative random variables.
+
+(i) Suppose that $\xi (u,v)\prec \zeta(u,v)$ uniformly in $u\in U$ and $v\in V$. If $|V|\le N^C$ for some constant $C$, then $\sum_{v\in V} \xi(u,v) \prec \sum_{v\in V} \zeta(u,v)$ uniformly in $u$.
+
+(ii) If $\xi_1 (u)\prec \zeta_1(u)$ and $\xi_2 (u)\prec \zeta_2(u)$ uniformly in $u\in U$, then $\xi_1(u)\xi_2(u) \prec \zeta_1(u)\zeta_2(u)$ uniformly in $u$.
+
+(iii) Suppose that $\Psi(u)\ge N^{-C}$ is deterministic and $\xi(u)$ satisfies $\mathbb E\xi(u)^2 \le N^C$ for all $u$. Then if $\xi(u)\prec \Psi(u)$ uniformly in $u$, we have $\mathbb E\xi(u) \prec \Psi(u)$ uniformly in $u$.
+\end{lemma}
+
+\begin{definition}[Bounded support condition] \label{defn_support}
+We say a random matrix $X=(x_{ij})$ satisfies the {\it{bounded support condition}} with $q$, if
+\begin{equation}
+\max_{i,j}\vert x_{ij}\vert \prec q. \label{eq_support}
+\end{equation}
+Here $q\equiv q(N)$ is a deterministic parameter and usually satisfies $ N^{-{1}/{2}} \leq q \leq N^{- \phi} $ for some (small) constant $\phi>0$. Whenever (\ref{eq_support}) holds, we say that $X$ has support $q$. 
+\end{definition}
+
+Next we introduce a convenient self-adjoint linearization trick, which has been proved to be useful in studying the local laws of random matrices of the Gram type \cite{Alt_Gram, AEK_Gram, Anisotropic, XYY_circular}. We define the following $(n+N)\times (n+N)$ self-adjoint block matrix, which is a linear function of $X$:
+ \begin{equation}
+   H \equiv H(X): = \left( {\begin{array}{*{20}c}
+   { 0 } & \Sig^{1/2} U^{*}X V\wt \Sig^{1/2}   \\
+   {\wt\Sig^{1/2}V^*X^* U\Sig^{1/2} } & {0}  \\
+   \end{array}} \right),
+ \end{equation}
+ If we denote $D:=\Sig^{1/2} U^{*}$ and  $E:=V\ST^{1/2}$. Then $H$ can be written as
+ \begin{equation}\label{linearize_block}
+   H \equiv H(X): = \left( {\begin{array}{*{20}c}
+   { 0 } & DXE   \\
+   {(DXE)^{*} } & {0}  \\
+   \end{array}} \right),
+ \end{equation}
+Then we define its resolvent (Green's function) as
+ \begin{equation}\label{eqn_defG}
+ G \equiv G (X,z):= \left[H(X)-\left( {\begin{array}{*{20}c}
+   { I_{n\times n}} & 0  \\
+   0 & { zI_{N\times N}}  \\
+\end{array}} \right)\right]^{-1} , \quad z\in \mathbb C_+ .
+ \end{equation}
+By Schur complement formula, we can verify that (recall \eqref{def_green})
+\begin{equation}
+\begin{aligned} 
+G = \left( {\begin{array}{*{20}c}
+   { z\mathcal G_1} & \mathcal G_1 DXE  \\
+   {(DXE)^{*} \mathcal G_1} & { \mathcal G_2 }  \\
+\end{array}} \right) = \left( {\begin{array}{*{20}c}
+   { z\mathcal G_1} & DXE \mathcal G_2   \\
+   {\mathcal G_2}(DXE)^{*} & { \mathcal G_2 }  \\ 
+\end{array}} \right). \label{green2}
+\end{aligned}
+\end{equation}
+Thus a control of $G$ yields directly a control of the resolvents $\mathcal G_{1,2}$. For simplicity of notations, we define the index sets
+\[\mathcal I_1:=\{1,...,n\}, \quad \mathcal I_2:=\{n+1,...,n+N\}, \quad \mathcal I:=\mathcal I_1\cup\mathcal I_2.\]
+Then we label the indices of the matrices according to 
+$$X= (X_{i\mu}:i\in \mathcal I_1, \mu \in \mathcal I_2), \quad A=(A_{ij}: i,j\in \mathcal I_1),\quad B=(B_{\mu\nu}: \mu,\nu\in \mathcal I_2).$$  
+In the rest of this paper, %whenever referring to the entries of $H$ and $G$, 
+we will consistently use the latin letters $i,j\in\mathcal I_1$, greek letters $\mu,\nu\in\mathcal I_2$, and $a,b\in\mathcal I$. Next we define $$\mathbf{S} = \{u\in \C^{n+N}:\left \|  u \right \| =1\}.$$
+Given a vector $\uu = (u_1, u_2,\cdots,u_{n+N})\in \C^{n+N}$, let $$\uh:= (u_1,u_2,\cdots,u_{n},0,\cdots,0),\quad \ut:= (0,\cdots,0,u_{n+1},u_{n+2},\cdots,u_{n+N}).$$
+For vectors $\uu,\vv\in \C^{n+N}$ and matrix $X\in \C^{(n+N)\times(n+N)}$, we write $X_{\uu\vv} := \uu^{*}X\vv$ and $\underline{X}:=\frac{1}{n+N}\tr X$.
+
+\subsection{Main result}\label{sec_tools}
+
+For any constants $c_0,C_0>0$ and $\omega \le 1$, we define a domain of the spectral parameter $z$ as
+\begin{equation}
+S(c_0,C_0,\omega):= \left\{z=E+ \ii \eta: \lambda_+ - c_0 \leq E \leq C_0 \lambda_+, N^{-1+\omega} \leq \eta \leq 1 \right\}. \label{SSET1}
+\end{equation}
+In particular, we shall denote
+\begin{equation}
+S(c_0,C_0,-\infty):= \left\{z=E+ \ii \eta: \lambda_+ - c_0 \leq E \leq C_0 \lambda_+, 0 \leq \eta \leq 1 \right\}.
+\end{equation}
+We define the distance to the rightmost edge as
+\begin{equation}
+\kappa \equiv \kappa_E := \vert E -\lambda_+\vert  \quad \text{for } z= E+\ii \eta.\label{KAPPA}
+\end{equation}
+Then we have the following lemma, which summarizes some basic properties of $m_{1,2c}$ and $\rho_{1,2c}$.
+
+
+\begin{lemma}\label{lem_mbehavior}
+Suppose the assumptions \eqref{assm2}, \eqref{assm3} and \eqref{assm_gap} hold. Then
+there exists sufficiently small constant $\wt c>0$ such that the following estimates hold:
+\begin{itemize}
+\item[(1)]
+\begin{equation}
+\rho_{1,2c}(x) \sim \sqrt{\lambda_+-x}, \quad \ \ \text{ for } x \in \left[\lambda_+ - 2\wt c,\lambda_+ \right];\label{SQUAREROOT}
+\end{equation}
+\item[(2)] for $z =E+\ii \eta\in S(\wt c,C_0,-\infty)$, 
+\begin{equation}\label{Immc}
+\vert m_{1,2c}(z) \vert \sim 1,  \quad  \im m_{1,2c}(z) \sim \begin{cases}
+    {\eta}/{\sqrt{\kappa+\eta}}, & \text{ if } E\geq \lambda_+ \\
+    \sqrt{\kappa+\eta}, & \text{ if } E \le \lambda_+\\
+  \end{cases};
+\end{equation}
+%for $z = E+\ii \eta\in S(\wt c,C_0,\omega)$;
+\item[(3)] there exists constant $\tau'>0$ such that
+\begin{equation}\label{Piii}
+\min_{\mu\in \mathcal I_2} \vert 1 + m_{1c}(z)\wt \sigma_\mu \vert \ge \tau', \quad \min_{i\in \mathcal I_1} \vert 1 + m_{2c}(z)\sigma_i  \vert \ge \tau',
+\end{equation}
+for any $z \in S(\wt c,C_0,-\infty)$.
+\end{itemize}
+The estimates \eqref{SQUAREROOT} and \eqref{Immc} also hold for $\rho_c$ and $m_c$. 
+\end{lemma}
+
+\begin{proof}
+See Lemma 3.4 of \cite{yang2019edge}.
+\end{proof}
+
+In the rest of this section, we propose the local law that we aim to prove and the main steps we will take to prove this law. We define the deterministic limit $\Pi$ of the resolvent $G$ in (\ref{eqn_defG}) as
+\begin{equation}\label{defn_pi}
+\Pi (z): = \left( {\begin{array}{*{20}c}
+   { -\left(1+m_{2c}(z)\Sigma \right)^{-1} } & 0  \\
+   0 & { - z^{-1} (1+m_{1c}(z)\wt \Sigma )^{-1} }  \\
+\end{array}} \right) .
+\end{equation}
+Note that we have
+\be\label{mcPi}
+\frac1{nz}\sum_{i\in \mathcal I_1} \Pi_{ii} =m_c. 
+\ee
+Define the control parameters
+\begin{equation}\label{eq_defpsi}
+\tilde{\Psi} (z):= \sqrt {\frac{\Im \, m_{1c}(z)+\Im \, m_{2c}(z)}{{N\eta }} } + \frac{1}{N\eta}.
+\end{equation}
+Note that by (\ref{Immc}) and (\ref{Piii}), we have
+\begin{equation}\label{psi12}
+\|\Pi\|=\OO(1), \quad \tilde{\Psi} \gtrsim N^{-1/2} , \quad \tilde{\Psi}^2 \lesssim (N\eta)^{-1}, 
+\end{equation}
+for $z\in S(\wt c, C_0,-\infty)$. Now we are ready to state the local laws for $G(X,z)$.
+\begin{theorem}
+\label{local_law}
+Suppose Assumption \ref{assm_big1} and \eqref{assm_gap} hold. Suppose $X$ satisfies the bounded support condition (\ref{eq_support}) with $N^{-\frac{1}{2}}\le q\le N^{-\tau}$ for some constant $\tau>0$. Furthermore, suppose $X$ satisfies $\mathbf{E}x_{i\mu}^4 = O_{\prec}(N^{-2})$.
+ Fix $C_0>1$ and let $0<c_0<\tilde{c}$ be a sufficiently small constant where $\tilde{c}$ is defined in lemma \ref{lem_mbehavior}.
+Then the following estimates hold. 
+\begin{itemize}
+\item[(1)] {\bf Anisotropic local law}: For any $z\in  S(c_0,C_0,\epsilon)$ and deterministic unit vectors $\mathbf u, \mathbf v \in \mathbb C^{\mathcal I}$,
+\begin{equation}
+\label{anisotropic}
+\left| \langle \mathbf u, G(X,z) \mathbf v\rangle - \langle \mathbf u, \Pi (z)\mathbf v\rangle \right| \prec  q+\tilde{\Psi}(z).
+\end{equation}
+\item[(2)] {\bf Averaged local law}: For any $z \in S(c_0, C_0, \epsilon)$,  we have
+\begin{equation}
+\label{average}
+|m_1(z)-m_{1c}(z)|+|m_2(z)-m_{2c}(z)|+|m(z)-m_c(z)|\prec (\frac{q^2}{\sqrt{\kappa+\eta}}\wedge q) + (N \eta)^{-1}.
+\end{equation}
+\end{itemize}
+\end{theorem}
+
+Our proofs of local laws consist of the two following major steps, which are completely decoupled.
+\textit{A stochastic step} establishing a self-consistent equation for the Green function with a random error term. Specifically, we construct
+$$M:\C^{(n+N)\times (n+N)}\to\C^{(n+N)\times (n+N)}$$
+such that the deterministic limit of $G$ is uniquely characterized as the solution of the equation $M(\Pi)=0$ with positive imaginary part. And then we provide high-probability bounds on the matrix $M(G)$.
+ \textit{A deterministic step} analysing the stability of the self-consistent equation. This allows us to deduce $G-\Pi$ is small by (A).
+ For separable covariance matrices introduced above, step (A) is established by the following:
+ The map $M:\C^{(n+N)\times(n+N)}\to\C^{(n+N)\times(n+N)}$ is defined as
+\begin{equation}
+\label{s-ceq}
+M(\Pi)=I_{n+N}+\Pi\begin{pmatrix}
+I_{n}&0
+\\0&zI_{N}
+\end{pmatrix}+\Pi S(\Pi),\ S(\Pi):=\expect[H\Pi H].
+\end{equation}
+It is known that $M(\Pi)=0$ has a unique solution with positive imaginary part, denote it by $\Pi$.
+What we have to do is to provide a high-probability bound for $M(G)$ and $\underline{BM(G)}$ for any deterministic matrix $B$ that satisfies $\left\|B \right\| = O(1)$. In our work, we will first prove the following theorem in Section 3, which finishes the proof of the stochastic step. The proof of deterministic step is proposed in Section 4.
+
+\begin{theorem}
+\label{maintheorem}
+Suppose $\mathbf{E}x_{i\mu}^4 = O_{\prec}(N^{-2})$ and 
+$\max_{i,\mu}|x_{i\mu}|\prec q$
+for some deterministic parameter $q\in[N^{-1/2},N^{-\tau}].$ Suppose $||\Pi||=O(1)$ and $G-\Pi=O_{\prec}(\phi)$ for some deterministic parameter $\phi\in[N^{-1},N^{-\tau/10}]$ at  $z\in S(c_0,C_0,\epsilon)$. Then at $z$ we have
+$$M(G)=O_{\prec}(\Phi),\ |\underline{BM(G)}|\prec\Phi^{2},$$
+for any $||B||=O(1)$, where the error parameter is defined by
+$$\Psi:=\sqrt{\frac{\left\| \im\Pi \right\|+\phi+\eta}{N\eta}},\ \Phi:=(1+\phi)^{3}(q+\Psi).$$
+\end{theorem}
+The following section will focus on proving this theorem.
+\section{Proof of Theorem \ref{maintheorem}}
+\subsection{Main tools}
+\subsubsection{Cumulant expansion}
+
+Recall that for a real random variable $h$, all of whose moments are finite, the $k$-cumulant of $h$ is
+\begin{equation*}
+	\cal C_k(h)\deq(-\mathrm{i})^k\bigg(\frac{\dd^{k}}{\dd t^k}\log\mathbb{E}[e^{\mathrm{i}th}]\bigg)\Bigg|_{t=0}.
+\end{equation*}
+
+\begin{lemma}[Cumulant expansion]\label{lem:cumulant_expansion}
+	Let $f:\R\to\C$ be a smooth function, and denote by $f^{(k)}$ its $k$-th derivative. Then, for every fixed $\ell \in\N$, we have 
+\begin{equation}\label{eq:cumulant_expansion}
+	\mathbb{E}\big[h\cdot f(h)\big]=\sum_{k=0}^{\ell}\frac{1}{k!}\mathcal{C}_{k+1}(h)\mathbb{E}[f^{(k)}(h)]+\cal R_{\ell+1},
+\end{equation}	
+ assuming that all expectations in \eqref{eq:cumulant_expansion} exist, where $\cal R_{\ell+1}$ is a remainder term (depending on $f$ and $h$), such that for any $t>0$,
+\begin{equation} \label{R_l+1}
+\cal R_{\ell+1} = O(1) \cdot \bigg(\E\sup_{|x| \le |h|} \big|f^{(\ell+1)}(x)\big|^2 \cdot \E \,\big| h^{2\ell+4} \mathbf{1}_{|h|>t} \big| \bigg)^{1/2} +O(1) \cdot \bb E |h|^{\ell+2} \cdot  \sup_{|x| \le t}\big|f^{(\ell+1)}(x)\big|\,.
+\end{equation}
+\end{lemma}
+\begin{proof}
+See Lemma 2.4 of \cite{isotropic}.
+\end{proof}
+The following result gives bounds on the cumulants of the entries of $X$.
+\begin{lemma}\label{lem:cumulant_factos_estimate} If $X$ satisfies Assumption (\ref{assm1}), then for $k\geq 2$ we have
+	\begin{equation*}
+		\cal C_{k+1}(X_{ij})=O_k\big(N^{-3/2}q^{k-2}\big)
+	\end{equation*}
+and $\cal C_{1}(X_{ij})=0,\quad \cal C_2(X_{ij})=N^{-1}$.
+\end{lemma}
+
+\begin{proof} This follows easily by the homogeneity of the cumulants.
+\end{proof}
+\subsubsection{Ward identity}
+
+We will deduce another crucial tool in our proof— a corollary of Ward's identity.
+\begin{lemma}
+Under the assumption(\ref{green2}), for any $\uu \in \mathbf{S}$  and $z\in  S(c_0,C_0,\epsilon)$ where $C_0>1,0<c_0,\tilde{c}$, we have
+\begin{equation}
+\label{ward}
+\sum_{a\in \mathcal{I}}\left|G_{\uh a}\right|^{2}\prec \frac{\im\ \frac{G_{\uh\uh}}{z}}{\eta},\quad \sum_{a\in \mathcal{I}}\left|G_{\ut a}\right|^{2}\prec \frac{\im G_{\ut\ut}}{\eta} 
+\end{equation}
+\end{lemma}
+\begin{proof}
+Recall (\ref{green2}), we have 
+\begin{equation}
+\begin{aligned} 
+G = \left( {\begin{array}{*{20}c}
+   { z\mathcal G_1} & \mathcal G_1 DXE  \\
+   {(DXE)^{*} \mathcal G_1} & { \mathcal G_2 }  \\
+\end{array}} \right) = \left( {\begin{array}{*{20}c}
+   { z\mathcal G_1} & DXE \mathcal G_2   \\
+   {\mathcal G_2}(DXE)^{*} & { \mathcal G_2 }  \\ 
+\end{array}} \right).
+\end{aligned}
+\end{equation}
+By (\ref{def_green}), we have the Ward's identity
+$$
+\im \mathcal G_1 = \frac{\mathcal G_1-\mathcal G_1^{*}} {2\ii} = \eta\mathcal G_1\mathcal G_1^{*}.
+$$
+Thus 
+\begin{equation}
+\begin{aligned} 
+(GG^{*})_{\uh\uh}& = (\left|z\right|^2\mathcal G_1\mathcal G_1^{*}+\mathcal G_1 DXE(DXE)^{*} \mathcal G_1)_{\uh\uh}\\
+& \prec ((1+\left|z\right|^2)\mathcal G_1\mathcal G_1^{*})_{\uh\uh}
+= (1+\left|z\right|^2)\frac{\im \mathcal G_{1\uh\uh}}{\eta}
+\prec \frac{\im\ \frac{G_{\uh\uh}}{z}}{\eta},
+\end{aligned}
+\end{equation}
+where the second step follows from the priori bound lemma \ref{priori}. This demonstrates $\sum_{a\in \mathcal{I}}\left|G_{\uh a}\right|^{2}\prec \frac{\im\ \frac{G_{\uh\uh}}{z}}{\eta}.$ The second inequality can be proved by the same technique.
+\end{proof}
+Actually these two stochastic bounds can deduce a bound related with the error estimator $\Psi$.
+ \begin{lemma}
+ \label{wardlemma}
+ Under the condition of Theorem (\ref{maintheorem}),  for any $\uu \in \mathbf{S}$ , 
+ \begin{equation}
+\label{ward2}
+\sum_{a\in \mathcal{I}}\left|G_{\uh a}\right|^{2}\prec N\Psi^2,\quad \sum_{a\in \mathcal{I}}\left|G_{\ut a}\right|^{2}\prec N\Psi^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+By (\ref{ward}), it suffices to prove  
+$$
+\im\ \frac{G_{\uh\uh}}{z}\prec \left\| \im\Pi \right\|+\phi+\eta ,\quad \im G_{\ut\ut}\prec \left\| \im\Pi \right\|+\phi+\eta.
+$$
+The second inequality is trivial since $\im G_{\ut\ut}\prec\im \Pi_{\ut\ut}+\phi\prec\left\| \im\Pi \right\|+\phi$. Notice that when $ z\in S(c_0,C_0,\epsilon)$,
+\begin{equation}
+\begin{aligned}
+\nonumber
+ \Re z^{-1} = \frac{E}{\left|z\right|^2}\leq \frac{C_0\lambda_+}{(\lambda_+-c_0)^2} = O(1),\quad
+ \Im z^{-1} = \frac{-\eta}{\left|z\right|^2}\prec\eta,
+ \end{aligned}
+\end{equation}
+so we have
+\begin{equation}
+\begin{aligned}
+\nonumber
+\im\ \frac{G_{\uh\uh}}{z}= \im G_{\uh\uh} \Re z^{-1} + \Re G_{\uh\uh} \im z^{-1} \prec (\left\| \im\Pi \right\|+\phi)\cdot 1+ (1+\phi)\cdot\eta\prec \left\| \im\Pi \right\|+\phi+\eta,
+\end{aligned}
+\end{equation}
+which finishes the proof of the first inequality.
+\end{proof}
+The Ward's identity is essentially the only tool that we possess to get any type of smallness in the proof, which improve the trivial bound $N(1+\phi)^2$ to $N\Psi^2$. In our proof, when we refer to the Ward's identity, we will directly apply Lemma \ref{wardlemma}.
+
+\subsection{Anisotropic Estimation}
+In this subsection we prove the first assertion of Theorem \ref{maintheorem}, i.e., $M(G)_{\uu\vv}\prec\Phi$. Since $M(G)_{\uu\vv} = M(G)_{\uu\vh} + M(G)_{\uu\vt}$, it suffices to show $M(G)_{\uu\vh}\prec\Phi$. The proof of $M(G)_{\uu\vt}\prec\Phi$ is analogous.
+
+We denote
+$$\DD = \begin{pmatrix}
+  D& 0\\
+  0&0
+\end{pmatrix},\  \EE =  \begin{pmatrix}
+  0& 0\\
+  0&E
+\end{pmatrix},\  \SH = \begin{pmatrix}
+  \Sigma& 0\\
+  0&0
+\end{pmatrix},\  \STH =  \begin{pmatrix}
+  0& 0\\
+  0&\tilde{\Sigma}
+\end{pmatrix}.
+$$
+By definition of $G$, $M(G)$ and some simple calculation, we have 
+\begin{equation}
+\label{partialrule}
+\begin{aligned}
+\partial_{i\mu}G_{\xx\yy}=-(G\DD)_{\xx i}(\EE G)_{\mu\yy}-(G\EE^{*})_{\xx\mu}(\DD^{*}G)_{i\yy}.
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\label{expansion}
+\begin{aligned}
+M(G)_{\uu\vh}&=\left<\uu,\vh\right>+G_{\uu\vh}+m_{2}(z)(G\SH)_{\uu\vh}+\frac{1}{N}(G\STH G\SH)_{\uu\vh}\\
+&=\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}x_{i\mu}+m_{2}(z)(G\SH)_{\uu\vh}+\frac{1}{N}(G\STH G\SH)_{\uu\vh}.
+\end{aligned}
+\end{equation}
+Define
+$$\mathcal{M}=\expect[|M(G)_{\uu\vh}|^{2p}]^{\frac{1}{2p}}.$$
+If we can prove $\mathcal{M}\prec\Phi$ for any $p \in \mathbb{N}$, then we have  $M(G)_{\uu\vh}\prec \Phi$ as desired. Specifically speaking, for any $\eps,\eps',D>0,$ by Markov inequality we have
+$$\prob[|M(G)_{\uu\vh}|>N^{\eps}\Phi]\leq \frac{\mathcal{M}^{2p}}{N^{2p\eps}\Phi^{2p}}\leq N^{2p(\eps'-\eps)}\leq N^{-D},$$
+where the last step follows by choosing $\eps'<\eps$ and $p$ sufficiently large.
+
+Applying the cumulant expansion (Lemma \ref{lem:cumulant_expansion}) to $x_{i\mu}$, we can expand $\mathcal{M}^{2p}$ as 
+\begin{equation}
+\label{aims}
+\begin{aligned}
+\mathcal{M}^{2p}&=\expect[|M(G)_{\uu\vh}|^{2p}]=\expect[M(G)_{\uu\vh}^{p}\overline{M(G)}_{\uu\vh}^{p}]\\
+&=\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}x_{i\mu}M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p}]
++\expect[(m_{2}(z)(G\SH)_{\uu\vh}+\frac{1}{N}(G\STH G\SH)_{\uu\vh})M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p}]\\
+&=\frac{1}{N}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}\partial_{i\mu}(M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p})]\\
+&+\sum_{k=2}^{l}\sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\DD_{i\vh}^{*}\partial_{i\mu}^{k} \left((G\EE^{*})_{\uu\mu}M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p}\right)]+\sum_{i,\mu}\mathcal{R}_{l+1}^{i\mu}.
+\end{aligned}
+\end{equation}
+We shall emphasize that a crucial cancellation takes place here. One may verify by direct computation that
+$$\frac{1}{N}\partial_{i\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}+m_{2}(z)(G\SH)_{\uu\vh}+\frac{1}{N}(G\STH G\SH)_{\uu\vh}=0,$$
+which leads to a complete cancellation happening between the linear term in cumulant expansion and the tail entries in (\ref{expansion}). Moreover, the terms being cancelled out contains all the terms involving diagonal sums only (namely $m_{2}(z)(G\SH)_{\uu\vh}$), whose bound can not be improved by Ward identity.
+
+Let us begin with the first, also the easiest, term in (\ref{aims}), in which the partial derivative may act on either $M(G)_{\uu\vh}^{p-1}$ or $\overline{M(G)}_{\uu\vh}^{p}$. We focus on the case it acts on $M(G)_{\uu\vh}^{p-1}$, one shall realize that the other case follows in an analogous fashion (since the conjugation plays no essential role in the estimation). Therefore, what we need to estimate breaks into 5 parts:
+\begin{align*}
+A_{1}=&\frac{1}{N}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}G_{\uu\vh})M(G)_{\uu\vh}^{p-2}\overline{M(G)}_{\uu\vh}^{p}],\\
+A_{2}=&\frac{m_{2}(z)}{N}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}G\SH)_{\uu\vh}M(G)_{\uu\vh}^{p-2}\overline{M(G)}_{\uu\vh}^{p}],\\
+A_{3}=&\frac{(G\SH)_{\uu\vh}}{N}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}m_{2}(z))M(G)_{\uu\vh}^{p-2}\overline{M(G)}_{\uu\vh}^{p}],\\
+A_{4}=&\frac{1}{N^{2}}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}G\STH G\SH)_{\uu\vh}M(G)_{\uu\vh}^{p-2}\overline{M(G)}_{\uu\vh}^{p}],\\
+A_{5}=&\frac{1}{N^{2}}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\STH\partial_{i\mu}G\SH)_{\uu\vh}M(G)_{\uu\vh}^{p-2}\overline{M(G)}_{\uu\vh}^{p}].
+\end{align*}
+We would control the quantity $m_{2}(z)$ in $A_{2}$ by $(1+\phi)$, so the estimate for $A_{1}$ follows from a particular case ($\SH=I_{n}$) of that of $A_{2}$, which we now further discuss. By (\ref{partialrule}) and Ward identity, we have
+\begin{equation}
+\begin{aligned}
+&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}G\SH)_{\uu\vh}|\\
+\leq&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\DD)_{\uu i}(\EE G\SH)_{\mu\vh}|
++|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(\DD^{*}G\SH)_{i\vh}|\\
+=&|\sum_{\mu}(G\EE^{*})_{\uu\mu}(\EE G\SH)_{\mu\vh}(G\SH)_{\uu\vh}|
++|\sum_{\mu}(G\EE^{*})_{\uu\mu}^{2}(\SH G\SH)_{\vh\vh}|\\
+\leq&\sqrt{\sum_{\mu}|(G\EE^{*})_{\uu\mu}|^{2}}\cdot\sqrt{\sum_{\mu}|(\EE G\SH)_{\mu\vh}|^{2}}\cdot|(G\SH)_{\uu\vh}|
++\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|^{2}\right)\cdot|(\SH G\SH)_{\vh\vh}|\\
+\prec&(1+\phi)\cdot\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\vh\vh}}{\eta}}
++(1+\phi)\cdot\frac{\textup{Im }G_{\uu\uu}}{\eta}\prec\frac{N\Phi^{2}}{1+\phi}.
+\end{aligned}
+\nonumber
+\end{equation}
+
+%We need to write \Phi for A_{1,2,3,4,5} because (1+\phi)^{2} is involved
+
+Thus we obtain
+$$|A_{1}|+|A_{2}|\prec\Phi^{2}\expect[|M(G)_{\uu\vh}|^{2p-2}]\leq\Phi^{2}\mathcal{M}^{2p-2}.$$
+For $A_{3}$, we first compute $$\partial_{i\mu}m_{2}(z)=\frac{1}{N}\sum_{\nu}\partial_{i\mu}(G\STH)_{\nu\nu}=-\frac{1}{N}\sum_{\nu}((G\DD)_{\nu i}(\EE G\STH)_{\mu\nu}+(G\EE^{*})_{\nu\mu}(\DD^{*}G\STH)_{i\nu}).$$
+So we have
+\begin{equation}
+\begin{aligned}
+&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}m_{2}(z))|\\
+\leq&\frac{1}{N}|\sum_{i,\mu,\nu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\DD)_{\nu i}(\EE G\STH)_{\mu\nu}|
++\frac{1}{N}|\sum_{i,\mu,\nu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\EE^{*})_{\nu\mu}(\DD^{*}G\STH)_{i\nu}|\\
+=&\frac{1}{N}|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}(G\SH)_{\nu\vh}(\EE G\STH)_{\mu\nu}|
++\frac{1}{N}|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\nu\mu}(\SH G\STH)_{\vh\nu}|\\
+\leq&\frac{1+\phi}{N}\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|\right)\cdot\left(\sum_{\nu}|(G\SH)_{\nu\vh}|\right)
++\frac{1+\phi}{N}\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|\right)\cdot\left(\sum_{\nu}|(\SH G\STH)_{\vh\nu}|\right)\\
+\prec&(1+\phi)\cdot\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\vh\vh}}{\eta}}
++(1+\phi)\cdot\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\vh\vh}}{\eta}}\prec\frac{N\Phi^{2}}{1+\phi}.
+\end{aligned}
+\nonumber
+\end{equation}
+Thus we obtain
+$$|A_{3}|\prec\Phi^{2}\expect[|M(G)_{\uu\vh}|^{2p-2}]\leq\Phi^{2}\mathcal{M}^{2p-2}.$$
+Next, we focus on estimation on $A_{4,5}$. By (\ref{partialrule}) and Ward identity, we have
+\begin{equation}
+\begin{aligned}
+&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(\partial_{i\mu}G\STH G\SH)_{\uu\vh}|\\
+\leq&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\DD)_{\uu i}(\EE G\STH G\SH)_{\mu\vh}|
++|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(\DD^{*}G\STH G\SH)_{i\vh}|\\
+=&|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}(\EE G\STH)_{\mu\nu}(G\SH)_{\nu\vh}(G\SH)_{\uu\vh}|
++|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}^{2}(\SH G\STH)_{\vh\nu}(G\SH)_{\nu\vh}|\\
+\prec&\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|\right)\cdot\left(\sum_{\nu}|(G\SH)_{\nu\vh}|\right)\cdot(1+\phi)^{2}
++N\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}^{2}|\right)\cdot(1+\phi)^{2}\\
+\prec&N\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\vh\vh}}{\eta}}\cdot(1+\phi)^{2}
++N\cdot\frac{\textup{Im }G_{\uu\uu}}{\eta}\cdot(1+\phi)^{2}\prec N^{2}\Phi^{2},
+\end{aligned}
+\nonumber
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\STH\partial_{i\mu}G\SH)_{\uu\vh}|\\
+\leq&|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\STH G\DD)_{\uu i}(\EE G\SH)_{\mu\vh}|
++|\sum_{i,\mu}(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}(G\STH G\EE^{*})_{\uu\mu}(\DD^{*}G\SH)_{i\vh}|\\
+=&|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}(G\STH)_{\uu\nu}(G\DD)_{\nu\vh}(\EE G\SH)_{\mu\vh}|
++|\sum_{\mu,\nu}(G\EE^{*})_{\uu\mu}(G\STH)_{\uu\nu}(G\EE^{*})_{\nu\mu}(\SH G\SH)_{\vh\vh}|\\
+\prec&\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|\right)\cdot\left(\sum_{\nu}|(G\DD)_{\nu\vh}|\right)\cdot(1+\phi)^{2}
++\left(\sum_{\mu}|(G\EE^{*})_{\uu\mu}|\right)\cdot\left(\sum_{\nu}|(G\STH)_{\uu\nu}|\right)\cdot(1+\phi)^{2}\\
+\prec&N\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\vh\vh}}{\eta}}\cdot(1+\phi)^{2}
++N\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot\sqrt{\frac{\textup{Im }G_{\uu\uu}}{\eta}}\cdot(1+\phi)^{2}\prec N^{2}\Phi^{2}.\\
+\end{aligned}
+\nonumber
+\end{equation}
+Thus we obtain
+$$|A_{4}|+|A_{5}|\prec\Phi^{2}\expect[|M(G)_{\uu\vh}|^{2p-2}]\leq\Phi^{2}\mathcal{M}^{2p-2}.$$
+
+Then let us focus on the second term of (\ref{aims}). We denote
+\begin{equation}
+\begin{aligned}
+\label{xk}
+X_{k} &= \sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\DD_{i\vh}^{*}\partial_{i\mu}^{k} \left((G\EE^{*})_{\uu\mu}M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p}\right)]\\
+&= \sum_{i,\mu} \sum_{r,s,t\ge0,r+s+t=k}\expect[\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\cdot\partial_{i\mu}^{s}M(G)_{\uu\vh}^{p-1}\partial_{i\mu}^{t}\overline{M(G)}_{\uu\vh}^{p}].\\
+\end{aligned}
+\end{equation}
+As the sum over $r,s,t$ is finite, it suffices to deal with each term separately. The complex conjugates will play no role in the following analysis, so we drop them to simplify notations. Then we only need to estimate the quantities 
+\begin{equation}
+\sum_{i,\mu}\expect[\mathcal{C}_{k+1}(x_{i\mu})\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\cdot\partial_{i\mu}^{k-r}M(G)_{\uu\vh}^{2p-1}]
+\nonumber
+\end{equation}
+for $r=0,1,\cdots,k$. This quantity can be further expanded into a sum of terms
+\begin{equation}
+\label{term2}
+\begin{aligned}
+\sum_{i,\mu}\expect[\mathcal{C}_{k+1}(x_{i\mu})\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\cdot(\prod_{m=1}^{w} \partial_{i\mu}^{l_m}M(G)_{\uu\vh})M(G)_{\uu\vh}^{2p-1-w}].\\
+\end{aligned}
+\end{equation}
+where the sum ranges over $w = 0,1,\cdots,(k-r) \wedge (2p-1)$ and $ l_{1},\cdots, l_{w} > 0,
+l_{1} + \cdots + l_{w} = k-r$.\\
+We aim to bound this quantity by $\Phi^{w+1}\mathcal{M}^{2p-w-1}$. By Hölder's inequality, it reduces to \begin{equation}
+\label{xkaim}
+\begin{aligned}
+O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\cdot(\prod_{m=1}^{w} \partial_{i\mu}^{l_m}M(G)_{\uu\vh})\right |\prec\Phi^{w+1}.\\
+\end{aligned}
+\end{equation}
+To estimate the quantity, we provide some bounds of partial derivatives.
+\begin{lemma}
+Let $r\in \mathbb{N}$, then
+\begin{equation}
+\label{roughbound}
+\begin{aligned}
+(a)\partial_{i\mu}^{r}M(G)_{\uu\vh}\prec(1+\phi)^{r+2}.
+\end{aligned}
+\end{equation}
+\begin{equation}
+\label{accubound1}
+\begin{aligned}
+(b)\partial_{i\mu}M(G)_{\uu\vh}\prec(1+\phi)^2(\left|(G\DD)_{\uu i}\right|+\left|(G\DD)_{\vh i}\right|+|(\SH G\DD)_{\vh i}|+\Psi^2).
+\end{aligned}
+\end{equation}
+\begin{equation}
+\label{accubound2}
+\begin{aligned}
+(c)\partial_{i\mu}M(G)_{\uu\vh}\prec(1+\phi)^2(\left|(G\EE^{*})_{\uu \mu}\right|+\left|(G\EE^{*})_{\vh \mu}\right|+|(\SH G\EE^{*})_{\vh\mu}|+\Psi^2).
+\end{aligned}
+\end{equation}
+\end{lemma}
+\begin{proof}
+(a). Recall that $$M(G)_{\uu\vh}=\left<\uu,\vh\right>+G_{\uu\vh}+m_{2}(z)(G\SH)_{\uu\vh}+\frac{1}{N}(G\STH G\SH)_{\uu\vh}.$$
+By (\ref{partialrule}), for all $O(1)$ deterministic matrices $P$ and $Q$, $\partial_{i\mu}^{r} (PGQ)_{\uu\vh}$ can be written as a sum of $2^{r}$ terms, each of which is a product of $r+1$ entries of the matrices $XGY$, where $X$ and $Y$ are $O(1)$ deterministic matrices. This immediately gives $\partial_{i\mu}^{r} (PGQ)_{\uu\vh}\prec(1+\phi)^{r+1}$, and consequently,
+\begin{equation}
+\begin{aligned}
+&\partial_{i\mu}^{r}m_2(z)=\frac{1}{N}\sum_{\nu}\partial_{i\mu}^{r}(G\STH)_{\nu\nu}\prec(1+\phi)^{r+1},\\
+&\partial_{i\mu}^{r} \frac{1}{N}(G\STH G\SH)_{\uu\vh}
+= \frac{1}{N}\partial_{i\mu}^{r}(\sum_{a}(G\STH)_{\uu a}(G\SH)_{a \vh}  ) \prec \frac{1}{N}\sum_{a}\sum_{s=0}^{r}\partial_{i\mu}^{s}(G\STH)_{\uu a}\partial_{i\mu}^{r-s}(G\SH)_{a \vh}\\
+&\prec \frac{1}{N}\sum_{a}\sum_{s=0}^{r} (1+\phi)^{s+1}(1+\phi)^{r-s+1} \prec(1+\phi)^{r+2}.
+\end{aligned}
+\nonumber
+\end{equation}
+The estimate $\partial_{i\mu}^{r} m_{2}(z)(G\SH)_{\uu\vh}\prec(1+\phi)^{r+2}$ holds for similar reasons. Thus we have proved (a).
+
+(b) By (\ref{partialrule}),
+\begin{equation}
+\label{M(G)'}
+\begin{aligned}
+\partial_{i\mu} M(G)_{\uu\vh}
+= &-(G\DD)_{\uu i}(\EE G)_{\mu\vh}-(G\EE^{*})_{\uu\mu}(D^{*}G)_{i \vh}\\
+&-m_{2}(z)(G\DD)_{\uu i}(\EE G\SH)_{\mu\vh}-m_{2}(z)(G\EE^{*})_{\uu\mu}(D^{*}G\SH)_{i \vh}\\
+&-\frac{1}{N}(\EE G\STH G\DD)_{\mu i}(G\SH)_{\uu\vh}-\frac{1}{N}(\DD^{*} G\STH G\EE^{*})_{i\mu}(G\SH)_{\uu\vh}\\
+&-\frac{1}{N}(G\DD)_{\uu i}(\EE G \STH G \SH)_{\mu\vh}-\frac{1}{N}(G\EE^{*})_{\uu\mu}(D^{*}G\SH G \STH)_{i \vh}\\
+&-\frac{1}{N}(G \STH G \DD)_{\uu i}(\EE G\SH)_{\mu\vh}-\frac{1}{N}(G\STH G\EE^{*})_{\uu \mu}(D^{*}G\SH)_{i\vh}.
+\end{aligned}
+\end{equation}
+The first and third term can be dominated by $(1+\phi)^2(G\DD)_{\uu i}$, the second term can be dominated by $(1+\phi)(G\DD)_{\vh i}$, and the fourth term can be dominated by $(1+\phi)^2(\SH G\DD)_{\vh i}$. For the fifth term,
+\begin{equation}
+\begin{aligned}
+\frac{1}{N}(\EE G \STH G \DD)_{\mu i}& = \frac{1}{N} \sum_{j}(\EE G \STH)_{\mu j}(G \DD)_{ji}\\
+&\prec \frac{1}{N}\sqrt{\sum_{i}(\EE G \STH)_{\mu j}^{2}\sum_{i}(G \DD)_{ji}^{2}}\\
+&\prec\frac{1}{N}(N^{\frac{1}{2}}\Psi)(N^{\frac{1}{2}}\Psi)= \Psi^{2}
+\end{aligned}
+\nonumber
+\end{equation}
+Thus the fifth term is dominated by $(1+\phi)\Psi^{2}$. Similarly, the rest terms are dominated by $(1+\phi)\Psi^{2}$. Combining all the above, we finish the proof.
+
+(c) The proof of (c) is almost the same as (b) except that we bound the first term by $(1+\phi)^{2}(G\EE^{*})_{\vh\mu}$, the second and fourth terms by $(1+\phi)^{2}(G\EE^{*})_{\uu\mu}$, and the third term by $(1+\phi)^{2}(\SH G\EE^{*})_{\vh\mu}$.
+\end{proof}
+Then we turn to the proof of (\ref{xkaim}). Note that by (\ref{partialrule}), $\partial_{i\mu}^{r}(G\EE^{*})_{\uu\mu}$ can be written as a sum of $2^{r}$ terms, each of which is a
+product of $r+1$ entries of the matrices $XGY$, where $X$ and $Y$ are $O(1)$ deterministic matrices, with one entry of the form $(G\DD)_{\uu i}$ or $(G\EE^{*})_{\uu\mu}$. For any $r\ge 0$, by Cauchy-Schwarz inequality and Ward identity, we have
+\begin{equation}
+\begin{aligned}
+\sum_{i,\mu}\left |\DD_{i\vh}^{*}\partial_{i\mu}^{r}(G\EE^{*})_{\uu\mu}\right|\prec (1+\phi)^{r}\sum_{i,\mu}\left |\DD_{i\vh}^{*}\left(\left|(G\DD)_{\uu i}\right|+\left|(G\EE^{*})_{\uu\mu}\right|\right)\right|
+\prec(1+\phi)^{r}N^{\frac{3}{2} }\Psi.
+\end{aligned}
+\nonumber
+\end{equation}
+Combining this with (\ref{roughbound}), we obtain that when $k-2\ge w$,
+\begin{equation}
+\begin{aligned}
+&O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\ (\prod_{m=1}^{w} \partial_{i\mu}^{l_m}M(G)_{\uu\vh})\right|\\ &\prec N^{-3/2}q^{k-2}(1+\phi)^{r}N^{\frac{3}{2} }\Psi(1+\phi)^{k-r+2w} =q^{k-2}(1+\phi)^{k+2w}\Psi\\ &\prec((1+\phi)^{3}q)^{k-2}((1+\phi)^{3}\Psi)\\ &\prec((1+\phi)^{3}(q+\Psi))^{w+1} = \Phi^{w+1}.
+\end{aligned}
+\nonumber
+\end{equation}
+Note that here we require $(1+\phi)^3q\leq 1$ for large $N$ and $(1+\phi)^3\Psi\prec 1$.  What remains, therefore, is to estimate the left hand side of (\ref{xkaim}) for $w \ge k-1$, which we assume from now on. Since $w\le k-r$, we ﬁnd that $r = 0 $ or $1$. Thus, it remains to consider the three cases $(r,w) = (0,k)$, $(r,w) = (1,k-1)$, and $(r,w) = (0, k-1)$. We deal with them separately.
+
+Case 1: $(r,w) = (0,k)$.\\
+In this case, $l_{1} = l_{2} = \cdots = l_{k} = 1$. And the LHS of (\ref{xkaim}) can be estimated as follows.
+\begin{equation}
+\begin{aligned}
+&O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\ (\prod_{m=1}^{k} \partial_{i\mu}M(G)_{\uu\vh})\right|\\
+&\prec N^{-3}q^{k-2}(1+\phi)^{3k-6}\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}[(1+\phi)^2(\left|(G\EE^{*})_{\uu \mu}\right|+\left|(G\EE)_{\vh \mu}\right|+\left|(\SH G\EE)_{\vh \mu}\right|+\Psi^{2})]\right. \\
+&\qquad \qquad \left. \times [(1+\phi)^2(\left|(G\DD)_{\uu i}\right|+\left|(G\DD)_{\vh i}\right|+\left|(\SH G\DD)_{\vh i}\right|+\Psi^{2})]\right|.
+\end{aligned}
+\nonumber
+\end{equation}
+By Cauchy-Schwarz inequality and Ward identity,
+\begin{equation}
+\begin{aligned}
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\uu\mu}(G\DD)_{\uu i}\right|
+\prec \sqrt{\sum_{i}\DD_{i\vh}^{*2}}\sqrt{\sum_{i}(G\DD)_{\uu i}^{2}}\sum_{\mu}(G\EE^{*})_{\uu\mu}^{2}
+\prec N^{\frac{3}{2}}\Psi^{3},\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\uu\mu}(G\DD)_{\vh i}\right|
+\prec \sqrt{\sum_{i}\DD_{i\vh}^{*2}}\sqrt{\sum_{i}(G\DD)_{\vh i}^{2}}\sum_{\mu}(G\EE^{*})_{\uu\mu}^{2}
+\prec N^{\frac{3}{2}}\Psi^{3},\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\vh\mu}(G\DD)_{\uu i}\right|
+\prec \sqrt{\sum_{i}\DD_{i\vh}^{*2}}\sqrt{\sum_{i}(G\DD)_{\uu i}^{2}}\sqrt{\sum_{\mu}(G\EE^{*})_{\uu\mu}^{2}}\sqrt{\sum_{\mu}(G\EE^{*})_{\vh\mu}^{2}}
+\prec N^{\frac{3}{2}}\Psi^{3},\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\vh\mu}(G\DD)_{\vh i}\right|
+\prec \sqrt{\sum_{i}\DD_{i\vh}^{*2}}\sqrt{\sum_{i}(G\DD)_{\vh i}^{2}}\sqrt{\sum_{\mu}(G\EE^{*})_{\uu\mu}^{2}}\sqrt{\sum_{\mu}(G\EE^{*})_{\vh\mu}^{2}}
+\prec N^{\frac{3}{2}}\Psi^{3},\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\vh\mu}\Psi^{2}\right|
+\prec \sum_{i}\left|\DD_{i\vh}^{*}\right| \sum_{\mu}\left|(G\EE^{*})_{\uu\mu}\right|(1+\phi)\Psi^{2}
+\prec (1+\phi)N^{\frac{3}{2}}\Psi^{3},\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\Psi^{4}\right|
+\prec N^{\frac{3}{2}}\Psi^{5}.\\
+\end{aligned}
+\nonumber
+\end{equation}
+Combining all above, we can bound the LHS of (\ref{xkaim}) by
+\begin{equation}
+\begin{aligned}
+&O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\ (\prod_{m=1}^{k} \partial_{i\mu}M(G)_{\uu\vh})\right|\\
+\prec &N^{-3/2}q^{k-2}(1+\phi)^{3k-6}(1+\phi)^{5}N^{\frac{3}{2}}\Psi^3
+= (1+\phi)^{3k-1}q^{k-2}\Psi^3\\
+\prec &((1+\phi)^{3}(q+\Psi))^{k+1} = \Phi^{w+1}.
+\end{aligned}
+\nonumber
+\end{equation}
+
+
+Case 2: $(r,w) = (1, k-1)$.\\
+In this case, $l_{1} = l_{2} = \cdots = l_{k-1} = 1$. The LHS of (\ref{xkaim}) can be estimated as follows.
+\begin{equation}
+\begin{aligned}
+&O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}\partial_{i \mu}(G\EE^{*})_{\uu\mu}\ ( \partial_{i\mu}M(G)_{\uu\vh})^{k-1}\right|\\
+\prec& N^{-3/2}q^{k-2}(1+\phi)^{3k-6}\sum_{i,\mu}\left|\DD_{i\vh}^{*}(\left|(GD)_{ui}\right|+\left|(G\EE^{*})_{\uu\mu}\right|+\left|(\SH G\EE^{*})_{\uu\mu}\right|)(1+\phi)^2(\left|(G\EE^{*})_{\uu \mu}\right|+\left|(G\EE)_{\vh \mu}\right|+\left|(\SH G\EE)_{\vh \mu}\right|)\right|\\
+\prec& N^{-3/2}q^{k-2}(1+\phi)^{3k-4} N^{3/2}\Psi^2
+\prec((1+\phi)^{3}(q+\Psi))^{k} = \Phi^{w+1}.
+\end{aligned}
+\nonumber
+\end{equation}
+Here in the first step we bound $\partial_{i \mu}(G\EE^{*})_{\uu\mu}$ by using the method in the general case, and use the accurate bound (\ref{accubound2}) on one $\partial_{i\mu}M(G)_{\uu\vh}$ and the rough bound (\ref{roughbound}) on the others. The second step is based on  Cauchy-Schwarz inequality and the Ward identity just as the previous cases.
+
+Case 3: $(r,w) = (0, k-1)$.\\
+In this case, $l_{1} = l_{2} = \cdots = l_{k-2} = 1,l_{k-1}=2$. When $k\geq 3$, the LHS of (\ref{xkaim}) can be estimated as follows.
+\begin{equation}
+\begin{aligned}
+&O(N^{-2}q^{k-3})\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\ ( \partial_{i\mu}M(G)_{\uu\vh})^{k-2}( \partial_{i\mu}^{2}M(G)_{\uu\vh})\right|\\
+\prec& N^{-2}q^{k-3}(1+\phi)^{3k-5}\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}[(1+\phi)^2(\left|(G\EE^{*})_{\uu \mu}\right|+\left|(G\EE)_{\vh \mu}\right|+\left|(\SH G\EE)_{\vh \mu}\right|+\Psi^{2})]\right|.
+\end{aligned}
+\nonumber
+\end{equation}
+Here we use the accurate bound (\ref{accubound2}) on one $\partial_{i\mu}M(G)_{\uu\vh}$ and the rough bound (\ref{roughbound}) on the others. By Cauchy-Schwarz inequality and the Ward identity
+\begin{equation}
+\begin{aligned}
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}^{2}\right|
+\prec N^{\frac{3}{2}}\Psi^2,\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}(G\EE^{*})_{\vh\mu}\right|
+\prec N^{\frac{3}{2}}\Psi^2,\\
+&\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\Psi^2\right|
+\prec N^{\frac{3}{2}}\Psi^3.\\
+\end{aligned}
+\nonumber
+\end{equation}
+Thus,
+\begin{equation}
+\begin{aligned}
+&O(N^{-3/2}q^{k-2})\sum_{i,\mu}\left |\DD_{i\vh}^{*}(G\EE^{*})_{\uu\mu}\ ( \partial_{i\mu}M(G)_{\uu\vh})^{k-2}( \partial_{i\mu}^{2}M(G)_{\uu\vh})\right|\\
+\prec& N^{-3/2}q^{k-2}(1+\phi)^{3k-4} N^{\frac{3}{2}}\Psi^2
+\prec (1+\phi)^{3k}q^{k-2}\Psi^2\\
+\prec &((1+\phi)^{3}(q+\Psi))^{k} = \Phi^{w+1}.
+\end{aligned}
+\nonumber
+\end{equation}
+For $k=2$, there is no $\partial_{i\mu}M(G)_{\uu\vh}$ for us to apply (\ref{accubound2}), so we have to analyze $\partial_{i\mu}^{2}M(G)_{\uu\vh}$ in detail. From the estimates above, we can see that it suffices to show
+$$\partial_{i\mu}^{2}M(G)_{\uu\vh}\prec(1+\phi)^{3}(|(G\EE^{*})_{\uu\mu}|+|(G\EE)_{\vh\mu}|+\Phi^{2}).$$
+For simplicity we won't present a clear proof here but only sketch a way to verify. One can simply look at the explicit formula for $\partial_{i\mu}M(G)_{\uu\vh}$ given by (\ref{M(G)'}), write down its derivative, find an entry $(G\EE^{*})_{\uu\mu}$ or $(G\EE)_{\vh\mu}$ in the derivative of first 4 terms, and apply Ward identity to bound the derivative of last 6 terms by $(1+\phi)^{3}\Psi^{2}$.
+\\
+By now we have managed to prove (\ref{xkaim}), and by Hölder's inequality, we obtain that
+\begin{equation}
+\begin{aligned}
+O(N^{-3/2}q^{k-2})\sum_{i,\mu}\expect\left |\DD_{i\vh}^{*}\partial_{i\mu}^{r} \left((G\EE^{*})_{\uu\mu}\right)\cdot(\prod_{m=1}^{w} \partial_{i\mu}^{l_m}M(G)_{\uu\vh})M(G)_{\uu\vh}^{2p-1-w}\right |\prec\Phi^{w+1}\mathcal{M}^{2p-w-1}.\\
+\end{aligned}
+\nonumber
+\end{equation}
+Plugging this into (\ref{xk}), we reach the result that for $k \ge 2$,
+\begin{equation}
+X_{k}\prec \sum_{w=0}^{k\wedge (2p-1)} \Phi^{w+1}\mathcal{M}^{2p-w-1}
+\le\sum_{i=1}^{2p} \Phi^{i}\mathcal{M}^{2p-i}.
+\nonumber
+\end{equation}
+Conbine the proof above, we can conclude that
+\begin{align*}
+  &\frac{1}{N}\sum_{i,\mu}\expect[(G\EE^{*})_{\uu\mu}\DD_{i\vh}^{*}\partial_{i\mu}(M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p})]
++\sum_{k=2}^{l}\sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\DD_{i\vh}^{*}\partial_{i\mu}^{k} \left((G\EE^{*})_{\uu\mu}M(G)_{\uu\vh}^{p-1}\overline{M(G)}_{\uu\vh}^{p}\right)]\\
+&\prec \sum_{i=1}^{2p} \Phi^{i}\mathcal{M}^{2p-i}.
+\end{align*}
+
+Besides,following a similar pattern as the proof of Lemma 3.4(c),\cite{isotropic}, we can prove that for any $D>0$ there exists an $l = l(D)\ge 1$ such that $R_{l+1}^{i\mu} = O(N^{-D})$ uniformly for all $i,\mu \in\left[ N \right]$. 
+
+Let $l = l(p+2)$ in this proposition and recall \ref{aims}, we obtain that
+$$
+\mathcal{M}^{2p}\prec \sum_{i=1}^{2p} \Phi^{i}\mathcal{M}^{2p-i} +O(N^{-p}).
+$$
+Furthermore, for any $\epsilon>0$, by Young's inequality
+\begin{align*}
+ \Phi^{i}\mathcal{M}^{2p-i} \leq 
+ \frac{2p-i}{2p}(N^{-\epsilon}\mathcal{M}^{2p-i})^{\frac{2p}{2p-i}}+\frac{i}{2p}(N^{\epsilon}\Phi^i)^{\frac{2p}{i}}
+ \prec N^{-\epsilon}\mathcal{M}^{2p} + N^{2p\epsilon}\Phi^{2p}.
+\end{align*}
+Since $\Phi\ge q+\Psi\ge N^{-1/2}$, $\Phi^{2p}\ge N^{-p}$. Thus,
+$$
+\mathcal{M}^{2p} \prec  N^{-\epsilon}\mathcal{M}^{2p} + N^{2p\epsilon}\Phi^{2p}.
+$$
+This proves that $\mathcal{M}\prec N^\epsilon \Phi$. By the arbitrariness of $\epsilon$, $\mathcal{M}\prec \Phi$. 
+\subsection{Averaged Estimation}
+Recall we had
+\begin{equation}
+\label{expansion2}
+\begin{aligned}
+M(G)_{\uu\vt}&=\left<\uu,\vt\right>+zG_{\uu\vt}+zm_{1}(z)(G\STH)_{\uu\vt}+\frac{1}{N}(G\SH G\STH)_{\uu\vt}\\
+&=\sum_{i,\mu}(G\DD)_{\uu i}\EE_{\mu\vt}x_{i\mu}+zm_{1}(z)(G\STH)_{\uu\vt}+\frac{1}{N}(G\SH G\STH)_{\uu\vt}.
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+\underline{BM(G)}&=\underline{B}+\underline{BG\textup{diag}\{I_{n},zI_{N}\}}+m_{2}(z)\underline{BG\SH}+\frac{1}{N}\underline{BG\STH G\SH}+zm_{1}(z)\underline{BG\STH}+\frac{1}{N}\underline{BG\SH G\STH}\\
+&=\frac{1}{n+N}\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}x_{i\mu}+m_{2}(z)\underline{BG\SH}+\frac{1}{N}\underline{BG\STH G\SH}\\
+&+\frac{1}{n+N}\sum_{i,\mu}(\EE BG\DD)_{\mu i}x_{i\mu}+zm_{1}(z)\underline{BG\STH}+\frac{1}{N}\underline{BG\SH G\STH}.
+\nonumber
+\end{aligned}
+\end{equation}
+Without loss of generality, let us assume $B_{\uh\vv}=0$, so the last expression reads
+\begin{equation}
+\label{expansion3}
+\begin{aligned}
+\underline{BM(G)}&=\underline{B}+\underline{BG}+m_{2}(z)\underline{BG\SH}+\frac{1}{N}\underline{BG\STH G\SH}\\
+&=\frac{1}{n+N}\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}x_{i\mu}+m_{2}(z)\underline{BG\SH}+\frac{1}{N}\underline{BG\STH G\SH}.
+\end{aligned}
+\end{equation}
+(If we could show $\underline{BM(G)}\prec\Phi^{2}$ for $B_{\uh\vv}=0$, then similarly $\underline{BM(G)}\prec\Phi^{2}$ for $B_{\ut\vv}=0$.\\
+By decomposing $B$ into upper and lower parts, we see that $\underline{BM(G)}\prec\Phi^{2}$ for general $B$.)\\
+Define
+$$\mathcal{N}=\expect[|\underline{BM(G)}|^{2p}]^{\frac{1}{2p}}.$$
+The quantities we aim to estimate are given by 
+\begin{equation}
+\label{aims2}
+\begin{aligned}
+\mathcal{N}^{2p}&=\frac{1}{N(n+N)}\sum_{i,\mu}\expect[(\DD^{*}BG\EE^{*})_{i\mu}\partial_{i\mu}\left(\underline{BM(G)}^{p-1}\overline{\underline{BM(G)}}^{p}\right)]\\
+%&+\frac{1}{N(n+N)}\sum_{i,\mu}\expect[(\EE BG\DD)_{\mu i}\partial_{i\mu}\left(\underline{BM(G)}^{p-1}\overline{\underline{BM(G)}}^{p}\right)]\\
+&+\frac{1}{n+N}\sum_{k=2}^{l}\sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\partial_{i\mu}^{k} \left((\DD^{*}BG\EE^{*})_{i\mu}\underline{BM(G)}^{p-1}\overline{\underline{BM(G)}}^{p}\right)]
+%&+\frac{1}{n+N}\sum_{k=2}^{l}\sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\partial_{i\mu}^{k}\left((\EE BG\DD)_{\mu i}\underline{BM(G)}^{p-1}\overline{\underline{BM(G)}}^{p}\right)]
++\sum_{i,\mu}\mathcal{R}_{l+1}^{'i\mu}.\\
+\end{aligned}
+\end{equation}
+For any deterministic matrix $C$ we have $\partial_{i\mu}\textup{tr}GC=-(\EE GCG\DD)_{\mu i}-(\DD^{*} GCG\EE^{*})_{i\mu}$.\\
+Keeping this in mind, combining (the latter expression of) (\ref{expansion3}) we see that
+\begin{equation}
+\label{partialbmg}
+\begin{aligned}
+\partial_{i\mu}\underline{BM(G)}
+&=\frac{1}{n+N}\left((\DD^{*}BG\EE^{*})_{i\mu}-\sum_{j,\nu}\left((\DD^{*}BG\DD)_{ji}(\EE G\EE^{*})_{\mu\nu}+(\DD^{*}BG\EE^{*})_{j\mu}(\DD^{*}G\EE^{*})_{i\nu}\right)x_{j\nu}\right)\\
+&-\frac{(\EE G\STH G\DD)_{\mu i}+(\DD^{*}G\STH G\EE^{*})_{i\mu}}{N}\underline{BG\SH}-m_{2}(z)\frac{(\EE G\SH BG\DD)_{\mu i}+(\DD^{*}G\SH BG\EE^{*})_{i \mu}}{n+N}\\
+&-\frac{(\EE G\STH G\SH BG\DD)_{\mu i}+(\DD^{*}G\STH G\SH BG\EE^{*})_{i\mu}+(\EE G\SH BG\STH G\DD)_{\mu i}+(\DD^{*}G\SH BG\STH G\EE^{*})_{i\mu}}{N(n+N)}\\
+&=\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu},\\
+\end{aligned}
+\end{equation}
+where
+\begin{equation}
+\label{q}
+\begin{aligned}
+Q_{\uu\vv}:=&\frac{1}{n+N}\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}x_{j \nu}+\frac{1}{N}(G\STH G)_{\uu\vv}\underline{BG\SH} + \frac{m_{2}(z)}{n+N}(G\SH BG)_{\uu\vv}\\ +&\frac{1}{N(n+N)}(G\STH G\SH BG+G\SH BG\STH G)_{\uu\vv}=(GFG)_{\uu\vv},
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\label{f}
+\begin{aligned}
+F_{\uu\vv}:=\frac{1}{n+N}\sum_{j,\nu}(\DD^{*}B)_{j\vv}\EE^{*}_{\uu\nu}x_{j \nu}+\frac{\STH_{\uu\vv}}{N}\underline{BG\SH}+\frac{m_{2}(z)}{n+N}(\SH B)_{\uu\vv}+\frac{(\STH G\SH B+\SH BG\STH )_{\uu\vv}}{N(n+N)}.
+\end{aligned}
+\end{equation}
+In order to analyze the bound of (\ref{aims2}), we require some bounds related with $Q$ defined above, as in the following lemma.
+\begin{lemma}
+\label{qlemma}
+(a). For a fixed integer $l\ge 0$ we have $\partial_{i \mu}^{l}Q \prec (1+\phi)^{l+1}\Psi^{2}$.
+
+(b). $Q\prec(1+\phi)^{4}(q+\Psi)^{3}.$
+\end{lemma}
+We shall emphasize that the bound in (b) is stronger than that in (a),  which relies on a crucial cancellation that fails for $l>0$. We shall postpone the proof of the lemma to next section, and return to finish estimating (\ref{aims2}).
+
+Dropping the complex conjugate, the first term in (\ref{aims2}) now writes 
+$$\frac{1}{N(n+N)}\sum_{i,\mu}\expect[(\DD^{*}BG\EE^{*})_{i\mu}\left(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{\mu i}\right)\underline{BM(G)}^{2p-2}].$$
+We now have
+$$\frac{1}{n(n+N)^{2}}\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}^{2}\prec\frac{1}{N^{3}}\cdot N^{2}\Phi^{2}\prec\Phi^{4},$$
+and by lemma (\ref{qlemma})(b),
+$$\frac{1}{n(n+N)}\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}\left( (\EE Q\DD)_{\mu i}+(\DD^{*}Q\EE^{*})_{\mu i} \right)\prec\frac{\Phi^{3}}{N^{2}}\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}\prec\Phi^{4}.$$
+Therefore, the first term in (\ref{aims2}) is dominated by $\expect[\Phi^{4}\underline{BM(G)}^{2p-2}]\leq\Phi^{4}\mathcal{N}^{2p-2}$, as desired.\\
+
+Then let us focus on the second term in (\ref{aims2}).We denote 
+\begin{equation}
+\label{yk}
+\begin{aligned}
+Y_{k} = \frac{1}{n+N}\sum_{i,\mu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{i\mu})\expect[\partial_{i\mu}^{k} \left((\DD^{*}BG\EE^{*})_{i\mu}\underline{BM(G)}^{p-1}\overline{\underline{BM(G)}}^{p}\right)]
+\end{aligned}
+\end{equation}
+Notice that for $k \ge 2$,
+\begin{equation}
+\begin{aligned}
+Y_{k} = O(N^{-\frac{5}{2}}q^{k-2})\sum_{i,\mu}\sum_{r,s,t\ge 0,r+s+t=k}\expect[\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right)\partial_{i\mu}^{s}\underline{BM(G)}^{p-1}\partial_{i\mu}^{t}\overline{\underline{BM(G)}}^{p}]
+\end{aligned}
+\end{equation}
+As the sum over $r,s,t$ is finite, it suffices to deal with each term separately. The complex conjugates will play no role in the following analysis, so we drop them to simplify notations. Thus, we only need to estimate the quantities
+\begin{equation}
+\begin{aligned}
+ O(N^{-\frac{5}{2}}q^{k-2})\sum_{i,\mu}\expect\left |\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right) \partial_{i\mu}^{k-r}\underline{BM(G)}^{2p-1}\right |.\\
+\end{aligned}
+\nonumber
+\end{equation}
+for $r=0,1,\cdots,k$. This quantity can be further expanded into a sum of terms
+\begin{equation}
+\label{thirdterm}
+\begin{aligned}
+ O(N^{-\frac{5}{2}}q^{k-2})\sum_{i,\mu}\expect\left |\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right) (\prod_{m=1}^{w} \partial_{i\mu}^{l_m}\underline{BM(G)})\underline{BM(G)}^{2p-1-w}\right |.\\
+\end{aligned}
+\end{equation}
+where the sum ranges over $w = 0,1,\cdots,(k-r) \wedge (2p-1)$ and $ l_{1},\cdots, l_{w} > 0,
+l_{1} + \cdots + l_{w} = k-r$.\\
+We aim to bound this quantity by $\Phi^{2w+2}\mathcal{M}^{2p-w-1}.$ And by Hölder's inequality, it reduces to \begin{equation}
+\label{ykaim}
+\begin{aligned}
+O(N^{-\frac{5}{2}}q^{k-2})\sum_{i,\mu}\expect\left |\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right) (\prod_{m=1}^{w} \partial_{i\mu}^{l_m}\underline{BM(G)})\right |\prec\Phi^{2w+2}.\\
+\end{aligned}
+\end{equation}
+Recall(\ref{partialbmg}), for any $t \ge 1$,
+$$\partial_{i\mu}^{t}\underline{BM(G)}
+=\partial_{i\mu}^{t-1}(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu}) $$
+By the rough bound of partial derivatives of $G$ and lemma (\ref{qlemma})(a), we have 
+$$
+\partial_{i\mu}^{t-1}(\DD^{*}BG\EE^{*})_{i\mu}\prec(1+\phi)^{t},
+$$
+and 
+$$
+\partial_{i\mu}^{t-1}((\EE Q\DD)_{\mu i}+(\DD^{*}Q\EE^{*})_{i\mu})\prec (1+\phi)^{t+1}\Psi^{2}.
+$$
+Combining these, we have for any $t \ge 1$
+$$
+\partial_{i\mu}^{t}\underline{BM(G)} \prec (1+\phi)^{t+1}\Psi^{2}
+$$
+Plugging into (\ref{ykaim}), we can conclude that when $k \ge 3$
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}}q^{k-2})\sum_{i,\mu}\left |\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right) (\prod_{m=1}^{w} \partial_{i\mu}^{l_m}\underline{BM(G)})\right |\\
+\prec&N^{-\frac{5}{2}}q^{k-2}\sum_{i,\mu}\left |\partial_{i\mu}^{r} \left((\DD^{*}BG\EE^{*})_{i\mu}\right) (1+\phi)^{k-r+w}\Psi^{2w}\right|\\
+\prec&N^{-\frac{5}{2}}q^{k-2}N^{2}(1+\phi)^{r+1}(1+\phi)^{k-r+w}\Psi^{2w}\prec((1+\phi)^{3}q)^{k-1}\Psi^{2w}\prec\Phi^{2w+2}
+\end{aligned}
+\end{equation}
+Then we only have to deal with the case when $k=2$. Since $k-r \ge w$, $w$ can only be 0,1 or 2. We discuss each situation separately.\\
+Case 1: $w=0$\\
+In this case the LHS of (\ref{ykaim}) is
+$$
+O(N^{-\frac{5}{2}})\sum_{i,\mu}\left |\partial_{i\mu}^{2} \left((\DD^{*}BG\EE^{*})_{i\mu}\right)\right|
+$$
+By (\ref{partialrule}), $\partial_{i\mu}^{2} 
+(\DD^{*}BG\EE^{*})_{i\mu}$ can be expanded into eight terms, each of which is a product of 3 entries of the matrices $XGY$, where X and Y are $O(1)$ definite matrices, and one of the three entries can be represented as $(XGY)_{i\mu}$. Using the Ward identity we have
+$$
+\sum_{i,\mu}(XGY)_{i\mu}\prec\sum_{i}\sqrt{(n+N)\sum{\mu}(XGY)_{i\mu}^{2}}\prec N^{2}\Psi,
+$$
+and combine the rough bound $G\prec 1+\phi$,
+$$
+O(N^{-\frac{5}{2}})\sum_{i,\mu}\left |\partial_{i\mu}^{2} \left((\DD^{*}BG\EE^{*})_{i\mu}\right)\right|
+\prec N^{-\frac{5}{2}}N^{2}\Psi(1+\phi)^{2}\prec\Phi^{2}
+$$
+Case 2: $w=1$\\
+This case can be further divided into two cases: $l_{1}=1$ and $l_{1}=2$. When $l_{1}=1$, the LHS of (\ref{ykaim}) can be estimated as
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}})\sum_{i,\mu}\left |\partial_{i\mu}(\DD^{*}BG\EE^{*})_{i\mu}(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu})\right|\\
+\prec& N^{-\frac{5}{2}}(1+\phi)^{2}\sum_{i,\mu}\left|\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu}\right|\\
+\prec& N^{-\frac{5}{2}}(1+\phi)^{2}(\frac{1}{n+N}N^{2}\Psi+N^{2}(1+\phi)^{4}(q+Psi)^{3})
+\prec \Phi^{4},
+\end{aligned}
+\end{equation}
+where in the first step we use the rough bound on $\partial_{i\mu}(\DD^{*}BG\EE^{*})_{i\mu}$, and in the second step we use the Ward identity and lemma (\ref{qlemma})(b).\\
+When $l_{1}=2$, the LHS of (\ref{ykaim}) can be estimated as
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}})\sum_{i,\mu}\left |(\DD^{*}BG\EE^{*})_{i\mu}\partial_{i\mu}(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu})\right|\\
+\prec&N^{-\frac{5}{2}}\sum_{i,\mu}\left |(\DD^{*}BG\EE^{*})_{i\mu}(N^{-1}(1+\phi)^{2}+(1+\phi)^{2}\Psi^{2})\right|\\
+\prec&N^{-\frac{5}{2}}(1+\phi)^{2}\Psi^{2}N^{2}\Psi
+\prec \Phi^{4},
+\end{aligned}
+\end{equation}
+where we use the Ward identity and lemma (\ref{qlemma})(a) in the first step and the rough bound in the second step.\\
+Case 3: $w=2$\\
+In this case $r=0,l_{1}=l_{2}=1$, so the LHS of (\ref{ykaim}) equals
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}})\sum_{i,\mu}\left |(\DD^{*}BG\EE^{*})_{i\mu}(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}-(\EE Q\DD)_{\mu i}-(\DD^{*}Q\EE^{*})_{i\mu})^{2}\right|\\
+\prec&N^{-\frac{5}{2}}\sum_{i,\mu}(\frac{1}{n+N}(\DD^{*}BG\EE^{*})_{i\mu}^{3}+\left|(\DD^{*}BG\EE^{*})_{i\mu}\right|(1+\phi)^8(q+\psi)^6)\\
+\prec&N^{-\frac{7}{2}}(1+\phi)\sum_{i,\mu}(\DD^{*}BG\EE^{*})_{i\mu}^{2}+N^{-\frac{1}{2}}(1+\phi)^9(q+\Psi)^6\\
+\prec&N^{-\frac{5}{2}}\Psi^2(1+\phi)+N^{-\frac{1}{2}}(1+\phi)^9(q+\Psi)^6\prec \Phi^6.
+\end{aligned}
+\end{equation}
+Here the first step is based on (\ref{qlemma})(b), and the third step is because of Cauchy-Schwarz inequality and Ward identity.
+Combine the proof above, we reach the result that for $k \ge 2$,
+\begin{equation}
+Y_{k}\prec \sum_{w=0}^{k\wedge (2p-1)} \Phi^{2w+2}\mathcal{M}^{2p-w-1}
+\le\sum_{i=1}^{2p} \Phi^{2i}\mathcal{M}^{2p-i}.
+\nonumber
+\end{equation}
+
+Besides,following a similar pattern as the proof of Lemma 3.4(c),\cite{isotropic}, we can prove that for any $D>0$ there exists an $l = l(D)\ge 1$ such that $R_{l+1}^{'i\mu} = O(N^{-D})$ uniformly for all $i,\mu \in\left[ N \right]$. 
+
+Let $l = l(p+2)$ in this proposition , we obtain that
+$$
+\mathcal{N}^{2p}\prec \sum_{i=1}^{2p} \Phi^{2i}\mathcal{N}^{2p-i} +O(N^{-p}).
+$$
+With the same technique as in the previous section, we reach the result that $\mathcal{N}\prec \Phi^2$.
+
+\subsection{Estimation on \texorpdfstring{$Q$}{Q}}
+Now let us return to the proof of  Lemma \ref{qlemma}. We first collect the relevant quantities here. Recall that
+\begin{equation}
+\begin{aligned}
+Q_{\uu\vv}:=&\frac{1}{n+N}\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}x_{j \nu}+\frac{1}{N}(G\STH G)_{\uu\vv}\underline{BG\SH} + \frac{m_{2}(z)}{n+N}(G\SH BG)_{\uu\vv}\\ +&\frac{1}{N(n+N)}(G\STH G\SH BG+G\SH BG\STH G)_{\uu\vv}=(GFG)_{\uu\vv},
+\nonumber
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\begin{aligned}
+F_{\uu\vv}:=\frac{1}{n+N}\sum_{j,\nu}(\DD^{*}B)_{j\vv}\EE^{*}_{\uu\nu}x_{j \nu}+\frac{\STH_{\uu\vv}}{N}\underline{BG\SH}+\frac{m_{2}(z)}{n+N}(\SH B)_{\uu\vv}+\frac{(\STH G\SH B+\SH BG\STH )_{\uu\vv}}{N(n+N)}.
+\nonumber
+\end{aligned}
+\end{equation}
+Their derivatives can be represented as
+\begin{equation}
+\label{partialf}
+\begin{aligned}
+\partial_{i\mu}F_{\uu\vv}&=\frac{(\DD^{*}B)_{i\vv}\EE^{*}_{\uu\mu}}{n+N}-\frac{\STH_{\uu\vv}}{N}\frac{(\EE G\SH BG\DD)_{\mu i}+(\DD^{*} G\SH BG\EE^{*})_{i\mu}}{n+N}-\frac{(\SH B)_{\uu\vv}}{n+N}\frac{(\EE G\STH G\DD)_{\mu i}+(\DD^{*} G\STH G\EE^{*})_{i\mu}}{N}\\
+&-\frac{(\STH G\DD)_{\uu i}(\EE G\SH B)_{\mu\vv}+(\STH G\EE^{*})_{\uu\mu}(\DD^{*} G\SH B)_{i\vv}+(\SH BG\DD)_{\uu i}(\EE G\STH)_{\mu\vv}+(\SH BG\EE^{*})_{\uu\mu}(\DD^{*}G\STH)_{i\vv}}{N(n+N)},
+\end{aligned}
+\end{equation}
+and
+\begin{equation}
+\label{partialq}
+\begin{aligned}
+\partial_{i\mu} Q_{\uu\vv} = -(G\DD)_{\uu i}(\EE Q)_{\mu\vv}-(G\EE^{*})_{\uu\mu}(\DD^{*}Q)_{i \vv}-(Q\DD)_{\uu i}(\EE G)_{\mu\vv}-(Q\EE^{*})_{\uu\mu}(\DD^{*}G)_{i \vv}+ R_{\uu\vv}^{i\mu},
+\end{aligned}
+\end{equation}
+where $R_{\uu\vv}^{i \mu}:= (G(\partial_{i \mu}F)G)_{\uu\vv}$
+\begin{equation}
+\label{r}
+\begin{aligned}
+&=\frac{(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}}{n+N}-\frac{(G\STH G)_{\uu\vv}}{N}\frac{(\EE G\SH BG\DD)_{\mu i}+(\DD^{*} G\SH BG\EE^{*})_{i\mu}}{n+N}-\frac{(G\SH BG)_{\uu\vv}}{n+N}\frac{(\EE G\STH G\DD)_{\mu i}+(\DD^{*} G\STH G\EE^{*})_{i\mu}}{N}\\
+&-\frac{(G\STH G\DD)_{\uu i}(\EE G\SH BG)_{\mu\vv}+(G\STH G\EE^{*})_{\uu\mu}(\DD^{*} G\SH BG)_{i\vv}+(G\SH BG\DD)_{\uu i}(\EE G\STH G)_{\mu\vv}+(G\SH BG\EE^{*})_{\uu\mu}(\DD^{*}G\STH G)_{i\vv}}{N(n+N)}.
+\end{aligned}
+\end{equation}
+\begin{proof}
+(a). We prove the claim by induction on $l$ and start with the case $l=0$. We deal with each term in (\ref{q}) separately. Firstly,
+\begin{equation}
+\nonumber
+\begin{aligned}
+&\frac{1}{n+N}\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}x_{j \nu}) = \frac{1}{n+N} (GHBG)_{\uu\vv}\\ \le  &\frac{1}{n+N} \sqrt{(\sum_{i}{(GH)_{\uu i}^2})(\sum_{i}{(BG)_{i \vv}^2})}
+\prec \frac{1}{N} \sqrt{\left \| H \right \| ^{2}N\Psi^{2}\left \| B\right \| ^{2} N\Psi^{2}} \prec  &\Psi^{2},
+\end{aligned}
+\end{equation}
+where in the last step we use $\left \| B\right \| = O(1)$ due to the assumption and $\left \| H\right \| = O(1)$ because of the Lemma \ref{priori}.
+
+The second term in (\ref{q}) is estimated as
+$$\frac{1}{N}(G\STH G)_{\uu\vv}\underline{BG\SH}\prec\frac{1+\phi}{N}\sum_{a}(G\STH)_{\uu a}G_{a\vv}\prec(1+\phi)\Psi^{2}.$$
+The third term is estimated analogously. The fourth term in (\ref{q}) is estimated as
+$$\frac{(G\STH G\SH BG)_{\uu\vv}}{N(n+N)}=\frac{1}{N(n+N)}\sum_{a,b}(G\STH)_{\uu a}(G\SH)_{ab}(BG)_{b\vv}\prec\frac{1+\phi}{N^{2}}\sum_{a,b}(G\STH)_{\uu a}(BG)_{b\vv}\prec(1+\phi)\Psi^{2}.$$
+The fifth term is estimated analogously. Therefore, we conclude $Q\prec(1+\phi)\Psi^{2}$.\\
+
+The inductive step proceeds as follows. Suppose $l\geq 1$ and $\partial_{i\mu}^{m}Q\prec(1+\phi)^{m+1}\Psi^{2}$ for $0\leq m\leq l-1$.\\
+By (\ref{partialq}) we have
+$$\partial_{i\mu}^{l}Q_{\uu\vv}=-\partial_{i\mu}^{l-1} \left( (G\DD)_{\uu i}(\EE Q)_{\mu\vv}+(G\EE^{*})_{\uu\mu}(\DD^{*}Q)_{i \vv}+(Q\DD)_{\uu i}(\EE G)_{\mu\vv}+(Q\EE^{*})_{\uu\mu}(\DD^{*}G)_{i \vv} \right) + \partial_{i\mu}^{l-1}R_{\uu\vv}^{i\mu}.$$
+The term $\partial_{i\mu}^{l-1}((G\DD)_{\uu i}(\EE Q)_{\mu\vv})$ is estimated by Leibniz rule and inductive hypothesis, as
+\begin{equation}
+\begin{aligned}
+|\partial_{i\mu}^{l-1}((G\DD)_{\uu i}(\EE Q)_{\mu\vv})|&\leq\sum_{m=0}^{l-1}\binom{l-1}{m}|\partial_{i\mu}^{m}(G\DD)_{\uu i}||\partial_{i\mu}^{l-1-m}(\EE Q)_{\mu\vv}|\\
+&\prec\sum_{m=0}^{l-1} (1+\phi)^{m+1}\cdot (1+\phi)^{l-m}\Psi^{2}\prec(1+\phi)^{l+1}\Psi^{2}.
+\nonumber
+\end{aligned}
+\end{equation}
+The three subsequent terms are estimated analogously. It remains to show $\partial_{i\mu}^{l-1}R_{\uu\vv}^{i\mu}\prec(1+\phi)^{l+1}\Psi^{2}.$
+Plugging in (\ref{r}), we obtain nine terms to estimate. The first term is estimated as
+$$\partial_{i\mu}^{l-1}\frac{(\DD^{*}BG)_{i\vv}(G\EE)_{\uu\mu}}{n+N}\prec\frac{(1+\phi)^{l}}{N}\prec(1+\phi)^{l+1}\Psi^{2}.$$
+The second term can be expressed as
+$$\partial_{i\mu}^{l-1}\frac{(G\STH G)_{\uu\vv}(\EE G\SH BG\DD)_{\mu i}}{N(n+N)}=\frac{1}{N(n+N)}\sum_{a,b}\partial_{i\mu}^{l-1} \left( (G\STH)_{\uu a}G_{a\vv}(\EE G\SH)_{\mu b}(BG\DD)_{bi}) \right),$$
+Now we compute the derivative, and obtain a sum of terms, each of which is a product of $l+3$ factors of the form $(XGY)_{\xx\yy}$, where $X,Y$ are $O(1)$ deterministic matrices and $\xx,\yy\in\{\uu,\vv,i,\mu,a,b\}$. Moreover, exactly two of them are of form $(XGY)_{\xx a}$ or $(XGY)_{a\xx}$ with $\xx\in\{\uu,\vv,i,\mu\}$. Applying Cauchy's inequality and Ward identity on the two terms and the summing index $a$, and estimating the rest factors by $(1+\phi)$, we conclude that
+$$\partial_{i\mu}^{l-1}\frac{(G\STH G)_{\uu\vv}(\EE G\SH BG\DD)_{\mu i}}{N(n+N)}\prec (1+\phi)^{l+1}\Psi^{2}.$$
+The seven subsequent terms are estimated analogously. Therefore, the inductive step is completed.
+
+(b). We have to improve the naive bound $(1+\phi)\Psi^{2}$ from part (a) by an order $\Psi$. We do this by deriving a stochastic self-improving estimate on $Q$.\\
+Define $$\mathcal{L}=\expect[|Q_{\uu\vv}|^{2p}]^{\frac{1}{2p}}.$$
+Applying cumulant expansion on (\ref{q}), we may write,
+\begin{equation}
+\begin{aligned}
+\mathcal{L}^{2p}&=\frac{1}{N(n+N)}\sum_{j,\nu}\expect[(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\partial_{j\nu}(Q_{\uu\vv}^{p-1}\overline{Q}_{\uu\vv}^{p})]\\
+&+\frac{1}{n+N}\sum_{k=2}^{l}\sum_{j,\nu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{j\nu})\expect[\partial_{j\nu}^{k}\left( (\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}Q_{\uu\vv}^{p-1}\overline{Q}_{\uu\vv}^{p} \right)]+\sum_{i,\mu}\mathcal{R}_{l+1}^{''i\mu}.
+\label{aims3}
+\end{aligned}
+\end{equation}
+We assume $Q\prec\lambda$ for some a priori bound $\lambda\geq (1+\phi)^{4}\Psi^{3}$. If we can show $\mathcal{L}^{2p}\prec((1+\phi)^{4}\Psi^{3}\lambda)^{p}$, then we obtain a posterior bound $Q\prec((1+\phi)^{4}\Psi^{3}\lambda)^{\frac{1}{2}}$. Therefore, an iterating process starting with $Q\prec(1+\phi)\Psi^{2}$ shown in (a) yields $Q\prec(1+\phi)^{4}\Psi^{3}$, as desired.\\
+We now estimate (\ref{aims3}). Dropping the complex conjugate, the first term in (\ref{aims3}) writes
+$$\frac{1}{N(n+N)}\sum_{i,\mu}\expect[(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}(\partial_{i\mu}Q_{\uu\vv})Q_{\uu\vv}^{2p-2}].$$
+To estimate it, it suffices to show
+\begin{equation}
+\begin{aligned}
+\frac{1}{N^{2}}\sum_{i,\mu}(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}(\partial_{i\mu}Q_{\uu\vv})\prec\Psi^{3}\lambda.
+\label{partialqbound}
+\end{aligned}
+\end{equation}
+Plugging in (\ref{partialq}), we obtain five terms to estimate. The first term is estimated as
+$$\frac{1}{N^{2}}\sum_{i,\mu}(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}(G\DD)_{\uu i}(\EE Q)_{\mu\vv}\prec\frac{\lambda}{N^{2}} \left( \sum_{i}(\DD^{*}BG)_{i\vv}(G\DD)_{\uu i} \right) \left( \sum_{\mu}(G\EE^{*})_{\uu\mu} \right)\prec\Psi^{3}\lambda.$$
+The three subsequent terms are estimated analogously. It remains to show
+$$\frac{1}{N^{2}}\sum_{i,\mu}(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}R_{\uu\vv}^{i\mu}\prec\Psi^{3}\lambda.$$
+Plugging in (\ref{r}), we obtain nine terms to estimate. The first term is estimated as
+$$\frac{1}{N^{3}}\sum_{i,\mu}(\DD^{*}BG)_{i\vv}^{2}(G\EE^{*})_{\uu\mu}^{2}\prec\frac{1}{N^{3}} \left( \sum_{i}(\DD^{*}BG)_{i\vv}^{2} \right) \left( \sum_{\mu}(G\EE^{*})_{\uu\mu}^{2} \right)\prec\frac{\Psi^{4}}{N}\prec\Psi^{3}\lambda.$$
+Now observe that the latter eight terms in (\ref{r}) can be dominated by $\Psi^{4}$ since $$\frac{1}{N}(XGCGY)_{\xx\yy}=\frac{1}{N}\sum_{a}(XGC)_{\xx a}(GY)_{a\yy}\prec\Psi^{2}$$
+holds for $O(1)$ deterministic matrices $X,C,Y$ and unit vectors $\xx,\yy$. Therefore,
+$$\frac{\Psi^{4}}{N^{2}}\sum_{i,\mu}(\DD^{*}BG)_{i\vv}(G\EE^{*})_{\uu\mu}\prec\frac{\Psi^{4}}{N^{2}} \left( \sum_{i}(\DD^{*}BG)_{i\vv} \right) \left( \sum_{\mu}(G\EE^{*})_{\uu\mu} \right)\prec\Psi^{6}\prec\Psi^{3}\lambda$$
+finishes our estimation.\\
+
+Now let us focus on the second term in (\ref{aims3}). For $k \ge 2$, we denote
+\begin{equation}
+\label{zk}
+\begin{aligned}
+ Z_{k}=\frac{1}{n+N}\sum_{j,\nu}\frac{1}{k!}\mathcal{C}_{k+1}(x_{j\nu})\expect[\partial_{j\nu}^{k}\left( (\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}Q_{\uu\vv}^{p-1}\overline{Q}_{\uu\vv}^{p} \right)]
+ \end{aligned}
+ \end{equation}
+Using the same technique as in the estimation of (\ref{xk}) and (\ref{yk}), we drop the complex conjugates, expand the partial derivatives, and plug in 
+$ \mathcal{C}_{k+1}(x_{j\nu}) = O(N^{-\frac{3}{2}}q^{k-2})$. Thus, we only need to estimate 
+$$ O(N^{-\frac{5}{2}}q^{k-2}) \sum_{j,\nu} \expect(\partial_{j\nu}^{r}( (\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu})\partial_{j\nu}^{k-r}(Q_{\uu\vv}^{2p-1}))$$ 
+for $r=0,1,\cdots,k$. This quantity can be further expanded into a sum of terms
+\begin{equation}
+\label{aimlast}
+\begin{aligned}
+ O(N^{-\frac{5}{2}}q^{k-2})\left |\sum_{j,\nu}\expect\partial_{j\nu}^{r} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\prod_{m=1}^{w} \partial_{j\nu}^{l_m}Q_{\uu\vv})Q_{\uu\vv}^{2p-1-w}\right |.\\
+\end{aligned}
+\end{equation}
+where the sum ranges over $w = 0,1,\cdots,(k-r) \wedge (2p-1)$ and $ l_{1},\cdots, l_{w} > 0,
+l_{1} + \cdots + l_{w} = k-r$.\\
+Denote $\Xi = (1+\phi)^{4}(q+\Psi)^{3}.$ We aim to bound (\ref{aimlast}) by $(\Xi\lambda)^{\frac{w+1}{2}}\mathcal{L}^{2p-w-1}.$  And by Hölder's inequality, it reduces to \begin{equation}
+\label{zkaim}
+\begin{aligned}
+ O(N^{-\frac{5}{2}}q^{k-2})\left |\sum_{j,\nu}\partial_{j\nu}^{r} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\prod_{m=1}^{w} \partial_{j\nu}^{l_m}Q_{\uu\vv})\right |\prec(\Xi\lambda)^{\frac{w+1}{2}}.\\
+\end{aligned}
+\end{equation}
+On one hand, by (\ref{partialrule}),for $t \ge 1$, $\partial_{j\nu}^{t} ((\DD^{*}BG)_{j\vv})$ can be written as a sum of terms, each of which is a product of $t+1$ entries of the matrices $XGY$, where $X,Y = O_{\prec}(1)$ are definite matrices, with one entry of the form $(\EE G)_{\nu\vv}$ or $(\DD^{*}G)_{j\vv}$. This expansion leads to the bound
+$$
+\partial_{j\nu}^{t} ((\DD^{*}BG)_{j\vv}) \prec (1+\phi)^{t}(\left|(\EE G)_{\nu\vv}\right|+\left|(\DD^{*} G)_{j \vv}\right|),
+$$
+when $t\ge 1$. And similarly, by expanding $\partial_{j\nu}^{t} ((G\EE^{*})_{\uu\nu})$, we can conclude that 
+$$
+ \partial_{j\nu}^{t} (G\EE^{*})_{\uu\nu})\prec (1+\phi)^{t}(\left|(G\DD)_{\uu j}\right|+\left|(G \EE^{*} )_{\uu\nu}\right|),
+$$
+when $t\ge 1$. But we notice that this also holds for $t =0$. By Leibniz's rule, Cauchy-Schwarz inequality and Ward identity,
+\begin{equation}
+\nonumber
+\begin{aligned}
+\sum_{j,\nu}\partial_{j\nu}^{r} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) &\prec\sum_{j,\nu}( \sum_{1 \le t\le r} \binom {t}{r}\partial_{j\nu}^{t} ((\DD^{*}BG)_{j\vv})\partial_{j\nu}^{t-r} (G\EE^{*})_{\uu\nu} +(\DD^{*}BG)_{j\vv} \partial_{j\nu}^{t} (G\EE^{*})_{\uu\nu})\\
+&\prec \sum_{j,\nu}(1+\phi)^{r}(\left|(\EE G)_{\nu\vv}\right|+\left|(\DD^{*} G)_{j \vv}\right|+\left|(\DD^{*} BG)_{j \vv}\right|)(\left|(G\DD)_{\uu j}\right|+\left|(G \EE^{*} )_{\uu\nu}\right|)\\
+&\prec (1+\phi)^{r}N^{2}\Psi^{2} 
+\end{aligned}
+\end{equation}
+Furthermore, we notice that this bound also hold for $r=0$.
+On the other hand, by lemma3.2.1(a), 
+$$\partial_{j\nu}^{l_m}Q_{\uu\vv} \prec (1+\phi)^{l_{m}+1}\Psi^2.$$
+Plugging the two results above into (\ref{zkaim}), we conclude that when $r \ge 0$ and $k \ge w+2$
+\begin{equation}
+\nonumber
+\begin{aligned}
+O(N^{-\frac{5}{2}}q^{k-2})\left|\sum_{j,\nu}\partial_{j\nu}^{r} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\prod_{m=1}^{w} \partial_{j\nu}^{l_m}Q_{\uu\vv})\right |
+&\prec N^{-\frac{5}{2}}q^{k-2} (1+\phi)^{r}N^{2}\Psi^{2}
+(1+\phi)^{k-r+w}\Psi^{2w}\\
+&\prec (1+\phi)^{1+w}((1+\phi)q)^{k-1}\Psi^{2w+2}\\
+&\prec ((1+\phi)(q+\Psi))^{k+2w+1}
+\prec \Xi^{w+1} \le (\Xi\lambda)^{\frac{w+1}{2}}
+\end{aligned}
+\end{equation}
+What remains, therefore, is to estimate the left hand side of (\ref{xkaim}) for $w \ge k-1$, which we assume from now on.
+Because $k \ge 3$ by assumption, we ﬁnd that $w>1$. Moreover, since $w\le k-r$, we ﬁnd that $r = 0 $ or $1$.
+Thus, it remains to consider the three cases $(r,w) = (0,k)$, $(r,w) = (1,k-1)$, and $(r,w) = (0, k-1)$.
+We deal with them separately.\\
+\\
+Case 1: $(r,w) = (0,k)$ \\
+Under this case $l_{1} =l_{2} = ... = l_{k} = 1$, and the LHS of (\ref{zkaim}) satisfies 
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}}q^{k-2})\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu} \prod_{m=1}^{w} \partial_{j\nu}Q_{\uu\vv})\\
+\prec&  O(N^{-\frac{5}{2}}q^{k-2})\left |\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\partial_{j\nu}\right| (1+\phi)^{k-1}\Psi^{2k-2} \\
+\prec& O(N^{-\frac{1}{2}}q^{w-2}) \Psi^{3}\lambda  (1+\phi)^{w-1}\Psi^{2w-2} \\
+\prec& \Xi^{w}\lambda \prec(\Xi\lambda)^{\frac{w+1}{2}},
+\end{aligned}
+\end{equation}
+where in the first step we use the rough bound in lemma (a), and in the second step we use (\ref{partialqbound}).\\
+
+Case 2: $(r,w) = (1,k-1)$ \\
+Under this case $l_{1} =l_{2} = \cdots= l_{k-1} = 1$. Firstly we will try to dominate $$\sum_{j,\nu}\partial_{j\nu} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\partial_{j\nu}Q_{\uu\vv})$$
+This quantity can be expanded into 
+\begin{equation}
+\nonumber
+\begin{aligned}
+&\sum_{j,\nu} (-(\DD^{*}BG\DD)_{j j}(\EE G)_{\nu v}(G\EE^{*})_{\uu\nu}-(\DD^{*}BG\EE^{*})_{j \nu}(\DD^{*}G)_{j\vv}(G\EE^{*})_{\uu\nu}-(\DD^{*}BG)_{j\vv}(G\DD)_{\uu j}(\EE G \EE^{*})_{\nu\nu}\\&-(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}(\DD^{*}G\EE^{*})_{j\nu})(
+-(G\DD)_{\uu j}(\EE Q)_{\nu\vv}-(G\EE^{*})_{\uu\nu}(\DD^{*}Q)_{j \vv}-(Q\DD)_{\uu j}(\EE G)_{\nu\vv}-(Q\EE^{*})_{\uu\nu}(\DD^{*}G)_{j \vv}+ R_{\uu\vv}^{j\nu}),
+\end{aligned}
+\end{equation}
+which can be further expanded into 20 terms. For the first term, we have
+$$\sum_{j,\nu} (\DD^{*}BG\DD)_{j j}(\EE G)_{\nu v}(G\EE^{*})_{\uu\nu} (G\DD)_{\uu j}(\EE Q)_{\nu\vv} \prec (1+\phi)\lambda\sum_{j}(G\DD)_{\uu j}\sum_{\nu}(\EE G)_{\nu v}(G\EE^{*})_{\uu\nu}\prec N^{2}(1+\phi)\Psi^{3}\lambda $$
+by Cauchy-Schwards inequality, Wards identity and the assumption of $Q$, and the other 15 terms that do not include $R_{\uu\vv}^{j\nu}$ can be estimated analogously.
+For the four terms that include $R_{\uu\vv}^{j\nu}$, we take the first term $\sum_{j,\nu} (\DD^{*}BG\DD)_{j j}(\EE G)_{\nu v}(G\EE^{*})_{\uu\nu}R_{\uu\vv}^{j\nu}$ as an example, and the other three terms can be estimated analogously. Plugging in (\ref{r}), we obtain 9 terms to estimated. The first term is dominated by 
+\begin{equation}
+\nonumber
+\begin{aligned}
+&\frac{1}{n+N}\sum_{j,\nu} (\DD^{*}BG\DD)_{j j}(\EE G)_{\nu v}(G\EE^{*})_{\uu\nu} (\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\\ \prec& \frac{1}{n+N}(1+\phi)^2 \sum_{\nu}(G\EE^{*})_{\uu\nu}^{2}\sum_{j}(\DD^{*}BG)_{j\vv}\\ \prec &N(1+\phi)^2\Psi^{3}
+\prec N^{\frac{5}{2}}(1+\phi)^2\Psi^{3}\lambda,
+\end{aligned}
+\end{equation}
+And it has been proved that the remaining eight terms in (\ref{r}) can be dominated by $\Psi^{4}$.Therefore,
+$$\Psi^{4}\sum_{j,\nu} (\DD^{*}BG\DD)_{j j}(\EE G)_{\nu \vv}(G\EE^{*})_{\uu\nu}\prec N^{2}(1+\phi)\Psi^{6}$$
+Combining all above, we can conclude that
+$$\sum_{j,\nu}\partial_{j\nu} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\partial_{j\nu}Q_{\uu\vv})
+\prec N^{\frac{5}{2}}(1+\phi)^2\Psi^{3}\lambda$$
+And thus,
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}}q^{k-2})\sum_{j,\nu}\partial_{j \nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu} )(\partial_{j\nu}Q_{\uu\vv})^{k-1}\\
+\prec&  O(N^{-\frac{5}{2}}q^{k-2})\sum_{j,\nu}(\partial_{j \nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu})\partial_{j\nu}Q_{\uu\vv} )(1+\phi)^{k-2}\Psi^{2k-4} \\
+\prec& q^{w-1}(1+\phi)^2 \Psi^{3}\lambda  (1+\phi)^{w-1}\Psi^{2w-2} \\
+\prec& \Xi^{w}\lambda \prec(\Xi\lambda)^{\frac{w+1}{2}},
+\end{aligned}
+\end{equation}
+\\
+Case 3: $(r,w) = (0, k-1)$.\\
+In this case, $l_{1} = l_{2} = \cdots = l_{k-2} = 1$ and $l_{k-1}=1$. In order to estimate the LHS of (\ref{zkaim}), the key part will be bounding $$ 
+\sum_{j,\nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu} \partial_{j\nu}^{2}Q_{\uu\vv}),$$
+which can be expanded into
+$$ 
+\sum_{j,\nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu} (-\partial_{j\nu}(G\DD)_{\uu j}(\EE Q)_{\nu\vv}-\partial_{j\nu}(G\EE^{*})_{\uu\nu}(\DD^{*}Q)_{j \vv}-\partial_{j\nu}(Q\DD)_{\uu j}(\EE G)_{\nu\vv}-\partial_{j\nu}(Q\EE^{*})_{\uu\nu}(\DD^{*}G)_{j \vv}+ \partial_{j\nu}R_{\uu\vv}^{j\nu}))$$
+The estimation of the first four terms will be similar, we take the first term as an example. The first term can be written as 
+\begin{equation}
+\nonumber
+\begin{aligned}
+&\sum_{j,\nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}(-(G\DD)_{\uu j}(\EE GD)_{\nu j}(\EE Q)_{\nu\vv}-(G\EE^{*})_{\uu\nu}(\DD^{*}G\DD)_{j j}(\EE Q)_{\nu\vv}-(G\DD)_{\uu j}\partial_{j\nu}(\EE Q)_{\nu\vv})\\
+\prec& (1+\phi)\lambda\sum_{j}((\DD^{*}BG)_{j\vv}(G\DD)_{\uu j}\sum_{\nu}(G\EE^{*})_{\uu\nu}+\lambda\sum_{j}(G\DD)_{\uu j}(\DD^{*}BG)_{j\vv}\sum_{\nu}(G\EE^{*})_{\uu\nu}^{2}+\\&(1+\phi)^{2}\Psi^{2}\sum_{j}(G\DD)_{\uu j}(\DD^{*}BG)_{j\vv}\sum_{\nu}(G\EE^{*})_{\uu\nu}\\
+\prec& (1+\phi)N^{2}\Psi^{3}\lambda+(1+\phi)^{2}N^{2}\Psi^{5} \prec(1+\phi)N^{2}\Psi^{2}\lambda
+\end{aligned}
+\end{equation}
+The next three terms can be dominated by the same bound. Now we turn to the last term 
+$$\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\partial_{j\nu}R_{\uu\vv}^{j\nu}.$$ According to (\ref{r}), $R_{\uu\vv}^{j\nu}$ can be further expanded into nine terms. Since for matrices $X,C,Y$ whose norms are $O(1)$, we have 
+$$
+\partial_{j,\nu}(XGCGY)_{\uu\vv} \prec (1+\phi)^{3}
+$$
+by (\ref{partialrule}) and the rough bound $G\prec 1+\phi,$ the derivatives of the last eight terms can all be bounded by $N^{-2}(1+\phi)^{5}.$ Thus, 
+\begin{equation}
+\nonumber
+\begin{aligned}
+&\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\partial_{j\nu}R_{\uu\vv}^{j\nu}\\
+\prec&\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\frac{1}{n+N}\partial_{j\nu}((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu})+\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}N^{-2}(1+\phi)^{5}\\
+\prec&N^{-1}(1+\phi)^2\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}((\DD^{*}BG)_{j\vv}+(G\EE^{*})_{\uu\nu})+\Psi^{2}(1+\phi)^5\\
+\prec&N(1+\phi)^{2}\Psi^{3}+\Psi^{2}(1+\phi)^5
+\prec (1+\phi)N^{2}\Psi^{2}\lambda
+\end{aligned}
+\end{equation}
+combining all above, we can finally conclude that
+\begin{equation}
+\nonumber
+\begin{aligned}
+&O(N^{-\frac{5}{2}}q^{k-2})\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}(\partial_{j\nu}^{2}Q_{\uu\vv}) (\partial_{j\nu}Q_{\uu\vv})^{k-2}\\
+\prec&  O(N^{-\frac{5}{2}}q^{k-2})\left |\sum_{j,\nu}(\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}\partial_{j\nu}^{2}Q_{\uu\vv}\right| (1+\phi)^{k-2}\Psi^{2k-4} \\
+\prec& O(N^{-\frac{5}{2}}q^{w-2})  (1+\phi)N^{2}\Psi^{2}\lambda  (1+\phi)^{w-1}\Psi^{2w-2} \\
+\prec& \Xi^{w}\lambda \prec(\Xi\lambda)^{\frac{w+1}{2}},
+\end{aligned}
+\end{equation}
+where in the first step we use the rough bound in lemma (a), and in the second step we use the estimations above.
+
+We have finished discussing all the cases, so 
+ (\ref{zkaim}) is proved. By Hölder's inequality, we obtain that
+\begin{equation}
+\begin{aligned}
+ O(N^{-\frac{5}{2}}q^{k-2})\left |\sum_{j,\nu}\expect\partial_{j\nu}^{r} ((\DD^{*}BG)_{j\vv}(G\EE^{*})_{\uu\nu}) (\prod_{m=1}^{w} \partial_{j\nu}^{l_m}Q_{\uu\vv})Q_{\uu\vv}^{2p-1-w}\right |\prec(\Xi\lambda)^{\frac{w+1}{2}}\mathcal{L}^{2p-w-1}.\\
+\end{aligned}
+\nonumber
+\end{equation}
+Plugging into (\ref{zk}), we reach the result that when $k \ge 2$
+\begin{equation}
+\begin{aligned}
+Z_{k}\prec& \sum_{w=0}^{k\wedge (2p-1)} (\Xi\lambda)^{\frac{w+1}{2}}\mathcal{L}^{2p-w-1}
+\le&\sum_{i=1}^{2p} (\Xi\lambda)^{\frac{i}{2}}\mathcal{L}^{2p-i}.
+\end{aligned}
+\nonumber
+\end{equation}
+
+Besides,following a similar pattern as the proof of Lemma 3.4(c),\cite{isotropic}, we can prove that for any $D>0$ there exists an $l = l(D)\ge 1$ such that $R_{l+1}^{''i\mu} = O(N^{-D})$ uniformly for all $i,\mu \in\left[ N \right]$. 
+
+Let $l = l(p+2)$ in this proposition, we obtain that
+$$
+\mathcal{L}^{2p}\prec \sum_{i=1}^{2p} (\Xi\lambda)^{2i}\mathcal{L}^{2p-i} +O(N^{-p}).
+$$
+With the same technique as in the previous section, we reach the result that $\mathcal{Q}\prec (\Xi\lambda)$.
+This implies that $$
+ \mathcal{Q} \prec \lambda \Longrightarrow  \mathcal{Q}\prec (\Xi\lambda)^{1/2}
+$$
+for any $\lambda \ge\Xi$. Recall that Lemma \ref{qlemma}(a) implies that we can start with $\mathcal{Q}\prec (1+\phi)\Psi^2$.
+By iterating $k$ times,  we find
+\begin{equation}
+\mathcal{Q} \prec ((1+\phi)\Psi^2)^{\frac{1}{2^k}} \Xi^{1 - \frac{1}{2^k}} .
+	\end{equation}
+Since $k$ can be large enough, we obtain $\mathcal{Q}\prec \Xi = (1+\phi)^4\Psi^3$ 
+\end{proof}
+
+\section{Proof of Theorem \ref{local_law}}
+In this section, we will provide a proof for the local law based on the anisotropic estimation and averaged estimation above.
+\subsection{Preliminaries}
+We recall that by (\ref{s-ceq}),
+$$
+M(G) = I_{n+N}+G\begin{pmatrix}
+   {I_n} & {0}   \\
+   {0} & {zI_N}  \\
+   \end{pmatrix}
+   +G\mathcal{S}(G),
+$$
+where $  \mathcal{S}(G):=\expect \left[\tilde{H}G\tilde{H}\right]$.
+We will consider a slightly adjusted quantity
+\begin{equation}
+\begin{aligned}
+\label{tildemg}
+\tilde{M}(G) = I_{n+N}+G\begin{pmatrix}
+   {I_n} & {0}   \\
+   {0} & {zI_N}  \\
+   \end{pmatrix}
++G\begin{pmatrix}
+   {m_2(z)\Sigma} & {0}   \\
+   {0} & {zm_1(z)\ST}  \\
+   \end{pmatrix}.
+\end{aligned}
+\end{equation}
+This quantity is quite close to $M(G)$, as indicated in the following lemma.
+\begin{lemma}
+\label{tildeMG}
+Let $z \in \mathcal{S}:=S(c_0,C_0,\epsilon)$ and suppose that $G-\Pi \prec \phi$ at z. Here $\phi$ is a deterministic continuous function $\phi: \mathcal{S} \to \left[ N^{-1}, N^{\delta}\right],\ \delta:=(\tau\wedge\epsilon)/10$. Define $$h(\phi):=\sqrt{\frac{\Im\ m_{1c}(z)+\Im\ m_{2c}(z)+\phi}{N\eta}},$$
+Then we have\\
+(1) $\tilde{M}(G) \prec (1+\phi)^{3}(q+h(\phi)),$\\
+(2) For any deterministic matrix $B$ satisfying $\left \| B \right \| = O(1),$ $\underline{B\tilde{M}(G)}\prec(1+\phi)^6(q^2+h(\phi)^2).$
+\end{lemma}
+\begin{proof}
+We first point out that theorem \ref{maintheorem} implies that $M(G)$ satisfies the above estimates, i.e. we have $\Psi\prec h(\phi)$. Note that 
+\begin{equation}
+\label{eta<mc}
+\eta\prec\Im\ m_{1c}(z)+\Im\ m_{2c}(z)
+\end{equation}
+by lemma \ref{lem_mbehavior} (2), so it suffices to show $||\Im\ \Pi||\prec\Im\ m_{1c}(z)+\Im\ m_{2c}(z)$. By (\ref{defn_pi}) we have
+\begin{equation}
+\begin{aligned}
+\Im\ \Pi=-\Pi\begin{pmatrix}
+   {\Im\ m_{2c}(z)\Sigma} & {0}   \\
+   {0} & {\Im\ z(1+m_{1c}(z))\SH}  \\
+   \end{pmatrix}\Pi^{*}.
+\end{aligned}
+\end{equation}
+Lemma \ref{lem_mbehavior} (3) implies that $||\Pi||=||\Pi^{*}||=O(1)$. Also lemma \ref{lem_mbehavior} (2) gives
+$$|\Im\ z(1+m_{1c}(z))|=|\eta(1+\Re\ m_{1c}(z))+E\Im\ m_{1c}(z)|=O(1)\cdot(\eta+\Im\ m_{1c}(z)),$$
+thus $|\Im\ z(1+m_{1c}(z))|\prec\Im\ m_{1c}(z)+\Im\ m_{2c}(z)$. Therefore, $||\Im\ \Pi||\prec\Im\ m_{1c}(z)+\Im\ m_{2c}(z)$.\\
+Next, we need to estimate the difference between $M(G)$ and $\tilde{M}(G)$. By direct computation, we have
+\begin{equation}
+\begin{aligned}
+M(G)_{\uu\vv}-\tilde{M}(G)_{\uu\vv}&=\frac{1}{N}(G\STH G\SH)_{\uu\vh}+\frac{1}{N}(G\SH G\STH)_{\uu\vt},\\
+\underline{BM(G)}-\underline{B\tilde{M}(G)}&=\frac{1}{N}\underline{BG\STH G\SH}+\frac{1}{N}\underline{BG\SH G\STH}.
+\end{aligned}
+\end{equation}
+A direct use of Ward identity yields the desired estimates.
+\end{proof}
+
+To simplify notations, we introduce
+$$R_{w_1,w_2}:=\begin{pmatrix}
+   {I_n + w_2\Sigma} & {0}   \\
+   {0} & {zI_N+ zw_1\ST}  \\
+   \end{pmatrix}^{-1},\quad w_1,w_2\in\mathbb{C}.$$
+Then (\ref{defn_pi}) becomes $\Pi=-R_{m_{1c},m_{2c}}$, and the equation (\ref{tildemg}) can be rearranged as
+\begin{equation}
+\label{GandMG}
+\begin{aligned}
+G = (\tilde{M}(G)-I)\begin{pmatrix}
+   {I_n + m_2(z)\Sigma} & {0}   \\
+   {0} & {zI_N+ zm_1(z)\ST}  \\
+   \end{pmatrix}^{-1}=(\tilde{M}(G)-I)R_{m_1,m_2}.
+\end{aligned}
+\end{equation}
+Taking difference yields
+\begin{equation}
+\label{GminusPi}
+\begin{aligned}
+G-\Pi = \tilde{M}(G)R_{m_1,m_2}-R_{m_1,m_2}+R_{m_{1c},m_{2c}}
+\end{aligned}
+\end{equation}
+The first term is considered as the error term, estimated by the following lemma.
+\begin{lemma}
+\label{tildeMGRgS}
+Under the assumptions of lemma \ref{tildeMG}, and assume that $||R_{m_1,m_2}||=O(1)$ with high probability. Then the conclusions of lemma \ref{tildeMG} hold with $\tilde{M}(G)$ replaced by $\tilde{M}(G)R_{m_1,m_2}$.
+\end{lemma}
+\begin{proof}
+Let $\Omega$ be an event of high probability such that $\mathbbm{1}_{\Omega} \norm{R_{m_1,m_2}} = O(1)$, and define the set
+ $\cal{U} \deq \h{(m_1 \equiv m_1(z,X), m_2 \equiv m_2(z,X)) \col X \in \Omega} \subset \C^{2}$.
+ Since $\abs{m_{1,2}} =O(\eta^{-1})=O(N)$, there exists an $N^{-3}$ net of $\cal U$ with size $O(N^{10})$, i.e.\ a set $\hat {\cal U} \subset \cal U$ such that $\abs{\hat {\cal U}} = O(N^{10})$ and for each $ u  \in \cal U$ there exists a $ \hat u  \in \hat {\cal U}$ such that $\abs{ u - \hat u } \leq N^{-3}$. By a union bound, from Lemma \ref{tildeMG} (i) it follows that for any $\f v , \f w \in \bb S$
+\begin{equation} \label{sup_s_est}
+\sup_{ \hat u = (\hat m_1,\hat m_2)  \in \hat {\cal U}} \abs{( \tilde{M}(G)R_{ \hat m_1, \hat m_2 })_{\f v \f w}} \prec (1 + \phi)^3 h(\phi)\,.
+\end{equation}
+We have resolvent identity
+\begin{equation}
+\label{residofR}
+R_{\hat m_1,\hat m_2}=R_{m_1,m_2}+R_{\hat m_1,\hat m_2}
+\begin{pmatrix}
+   {(m_1 - \hat m_1)\Sigma} & {0}   \\
+   {0} & {z(m_2 - \hat m_2)\ST}  \\
+   \end{pmatrix}
+R_{m_1,m_2},
+\end{equation}
+from which we deduce that $\norm{R_{\hat m_1,\hat m_2}}=O(1)$ by $\norm{R_{m_1,m_2}}=O(1)$ and $|m_1-\hat m_1|+|m_2-\hat m_2|=O(N^{-3})$. Writing
+\begin{equation*}
+\abs{(\tilde{M}(G)R_{m_1,m_2})_{\f v \f w}} \leq \abs{ \tilde{M}(G)(R_{\hat m_1,\hat m_2})_{\f v \f w}} + \absb{\pb{ \tilde{M}(G)(R_{\hat m_1, \hat m_2} - R_{m_1,m_2})}_{\f v \f w}}
+\end{equation*}
+and estimating the first term by $O_\prec((1 + \phi)^3 h(\phi))$ using \eqref{sup_s_est} and the second term by 
+$$\norm{\tilde{M}(G)} \norm{R_{\hat m_1, \hat m_2} - R_{m_1,m_2}} = O(\abs{m_1 - \hat m_1}+\abs{m_2 - \hat m_2})\norm{R_{\hat m_1, \hat m_2}}\norm{R_{m_1,m_2}}\norm{\tilde{M}(G)}= O(N^{-1})$$
+(since $\norm{\tilde{M}(G)} = O(N^2)$ trivially), we conclude that $\tilde{M}(G)R_{m_1,m_2} = O_\prec((1 + \phi)^3 h(\phi))$. Here we used that $N^{-1/2} = O(h(\phi))$ followed by (\ref{eta<mc}).\\
+The quantity $\ul{B R_{m_1,m_2} \Pi(G)}$ is estimated analogously. This concludes the proof.
+\end{proof}
+Next, we state a simple monocity result of the resolvent.
+\begin{lemma}
+\label{monocity}
+For any $M>1$ and $z\in\mathbb{C}_{+}$ we have $\norm{G(E+i\eta/M)}\leq M\norm{G(E+i\eta)}$.
+\end{lemma}
+\begin{proof}
+For any $z_1,z_2\in\mathbb{C}\backslash\mathbb{R}$, by (\ref{eqn_defG}) we have the resolvent identity
+  $$
+  G(z_1)-G(z_2) = G(z_1)\begin{pmatrix}
+   {0} & {0}   \\
+   {0} & {(z_2-z_1)I_N}  \\
+   \end{pmatrix}G(z_2).
+  $$
+  Thus for any deterministic unit vectors $\uu,\vv$, we have
+  \begin{equation}
+  \nonumber
+  \begin{aligned}
+        &|{G_{\uu\vv}(E+i(\eta+h))-G_{\uu\vv}(E+i\eta)}| \\
+     =&|h||\sum_{\mu\in I_2}G_{\uu\mu}(E+i(\eta+h))G_{\mu\vv}(E+i\eta)|\\
+     \leq&|h|\sqrt{\sum_{\mu\in I_2}|G_{\uu\mu}(E+i(\eta+h))|^2\sum_{\mu\in I_2}|G_{\mu\vv}(E+i\eta)|^2}\\
+     =&|h|\sqrt{\frac{|\Im\ G_{\uu\uu}(E+i(\eta+h))|}{\eta+h}\cdot\frac{|\Im\ G_{\vv\vv}(E+i\eta)|}{\eta}}.
+  \end{aligned}
+  \end{equation}
+  Denote $F(\eta) = \norm{G(E+i\eta)}$, the above inequality shows that
+  $$|F(\eta+h)-F(\eta)|\leq\norm{G(E+i(\eta+h))-G(E+i\eta)}\leq|h|\sqrt{\frac{F(\eta+h)}{\eta+h}\cdot\frac{F(\eta)}{\eta}}.$$
+  Thus, $F$ is locally Lipschitz continuous, and its almost everywhere defined derivative satisfies $|\frac{\dd F}{\dd\eta}|\leq\frac{F}{\eta}$.\\
+  This implies $\frac{\dd}{\dd\eta}(\eta F(\eta))\geq 0$ and $F(\eta/M)\leq MF(\eta)$ as claimed.
+\end{proof}
+The final lemma we need for proving the local law is a stability result on the equation $f(z,\alpha)=0$. Basically, it states that if $f(z, m_{2}(z))$ is small and $m_2(\wt z)-m_{2c}(\wt z)$ is small for $\Im\, \wt z \ge \Im\, z$, then $m_{2}(z)-m_{2c}(z)$ is small. For an arbitrary $z\in S(c_0,C_0, \e)$, we define the discrete set
+\begin{align*}%\label{eqn_def_L}
+L(z):=\{z\}\cup \{z'\in S(c_0,C_0, \e): \text{Re}\, z' = \text{Re}\, z, \text{Im}\, z'\in [\text{Im}\, z, 1]\cap (N^{-10}\mathbb N)\} .
+\end{align*}
+Thus, if $\text{Im}\, z \ge 1$, then $L(z)=\{z\}$; if $\text{Im}\, z<1$, then $L(z)$ is a 1-dimensional lattice with spacing $N^{-10}$ plus the point $z$. Obviously, we have $|L(z)|\le N^{10}$. %The following lemma is stated as Definition 5.4 of \cite{KY2} %and Lemma 4.5 of \cite{BEKYY}.
+
+\begin{lemma}[Stability, Lemma 5.11 in \cite{yang2019edge}]
+\label{stability}
+Let $c_0>0$ be a sufficiently small constant and fix $C_0,\epsilon>0$. The self-consistent equation $f(z,\al)=0$ is stable on $S(c_0,C_0, \epsilon)$ in the following sense. Suppose the $z$-dependent function $\delta$ satisfies $N^{-2} \le \delta(z) \le (\log N)^{-1}$ for $z\in S(c_0,C_0, \epsilon)$ and that $\delta$ is Lipschitz continuous with Lipschitz constant $\le N^2$. Suppose moreover that for each fixed $E$, the function $\eta \mapsto \delta(E+\ii\eta)$ is non-increasing for $\eta>0$. Suppose that $u_2: S(c_0,C_0,\epsilon)\to \mathbb C$ is the Stieltjes transform of a probability measure. Let $z\in S(c_0,C_0,\epsilon)$ and suppose that for all $z'\in L(z)$ we have 
+\begin{equation}\label{Stability0}
+\left| f(z', u_2)\right| \le \delta(z').
+\end{equation}
+Then we have
+\begin{equation}
+\left|u_2(z)-m_{2c}(z)\right|\le \frac{C\delta}{\sqrt{\kappa+\eta+\delta}},\label{Stability1}
+\end{equation}
+for some constant $C>0$ independent of $z$ and $N$, where $\kappa$ is defined in (\ref{KAPPA}). 
+%Similarly, the self-consistent equation $\mathcal D_2$ in (\ref{def_D12}) is also stable on $S(C_1)$.
+\end{lemma}
+
+\subsection{Proof of the local law}
+Let us begin by summarizing some important bounds given by lemma \ref{tildeMGRgS}. Denote
+\begin{equation}
+\nonumber
+\begin{aligned}
+\mathcal{E}_{12}&:=(m_{1}(z)-m_{1c}(z))-\frac{d_{N}}{z}(m_{2}(z)-m_{2c}(z))\int\frac{x^{2}\pi_{A}(\dd x)}{(1+xm_{2}(z))(1+xm_{2c}(z))},\\
+\mathcal{E}_{21}&:=(m_{2}(z)-m_{2c}(z))-\frac{1}{z}(m_{1}(z)-m_{1c}(z))\int\frac{x^{2}\pi_{B}(\dd x)}{(1+xm_{1}(z))(1+xm_{1c}(z))},\\
+\mathcal{E}_{01}&:=(m(z)-m_{c}(z))-\frac{1}{z}(m_1(z)-m_{1c}(z))\int\frac{x\pi_{A}(\dd x)}{(1+xm_{2}(z))(1+xm_{2c}(z))},\\
+\mathcal{E}_1&:=zm_1(z)+d_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)},\quad
+\mathcal{E}_2:=m_2(z)+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)}.
+%\mathcal{E}&:=zm(z)+\int\frac{\pi_A(\dd t)}{1+tm_2(z)}.
+%\mathcal{E} is not used in the following proof.
+\end{aligned}
+\end{equation}
+We have 
+\begin{equation}
+%\label{f(z,m_2(z))}
+\begin{aligned}
+f(z,m_2(z))&=\int\frac{x\pi_B(\dd x)}{-z+xd_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)}}-m_2(z)\\
+&=\int\frac{x\pi_B(\dd x)}{-z+x(\mathcal{E}_1-zm_1(z))}+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)}-\mathcal{E}_2\\
+&=-\mathcal{E}_1\int\frac{x^2\pi_B(\dd x)}{z^2(1+xm_1(z))(1+xm_1(z)-x\mathcal{E}_1/z)}-\mathcal{E}_2.
+\end{aligned}
+\end{equation}
+\begin{lemma}
+\label{appliof4.2}
+Under the assumptions of lemma \ref{tildeMGRgS}, we have
+$$\mathcal{E}_{12}+\mathcal{E}_{21}+\mathcal{E}_{01}+\mathcal{E}_1+\mathcal{E}_2\prec (1+\phi)^6(q^2+h(\phi)^2).$$
+\end{lemma}
+\begin{proof}
+By multiplying $\SH$ (resp. $\STH, \tilde{I}_{n}$) on both sides of (\ref{GminusPi}) and taking traces, we obtain
+$$\mathcal{E}_{12}+\mathcal{E}_{21}+\mathcal{E}_{01}\prec (1+\phi)^6(q^2+h(\phi)^2).$$
+By multiplying $\SH$ (resp. $\STH$) on both sides of (\ref{GandMG}) and taking traces, we obtain
+$$\mathcal{E}_{1}+\mathcal{E}_{2}\prec (1+\phi)^6(q^2+h(\phi)^2).$$
+\end{proof}
+Next, we fix $E \in [\lambda_+-c_0,C_0 \lambda_+]$, and first establish a weak law.
+
+\begin{lemma}
+\label{eta>>1}
+Under the assumptions of theorem \ref{local_law}, we have
+$$|m_1(z)-m_{1c}(z)|+|m_2(z)-m_{2c}(z)|\prec q^2+(N\eta)^{-1}.$$
+for sufficiently large $\eta$.
+\end{lemma}
+\begin{proof}
+For sufficiently large $\eta$, we have trivial bounds $G-\Pi=O_{\prec}(1)$, $||R_{m_1,m_2}||=O(1)$.\\
+By lemma \ref{appliof4.2} with $\phi=1$, we have $\mathcal{E}_{12}+\mathcal{E}_{21}\prec q^2+(N\eta)^{-1}$.\\
+As $\eta\to+\infty$ we have $|1/z|\to 0$, so it suffices to show that the integrals
+$$\int\frac{x^{2}\pi_{A}(\dd x)}{(1+xm_{2}(z))(1+xm_{2c}(z))},\quad \int\frac{x^{2}\pi_{B}(\dd x)}{(1+xm_{1}(z))(1+xm_{1c}(z))},$$
+which appear in $\mathcal{E}_{12},\mathcal{E}_{21}$, are $O(1)$ with high probability. For $x\in\supp\pi_{A}\cup\supp\pi_{B}$, we have:
+\begin{itemize}
+\item $x,x^{2}=O(1)$ by assumption (\ref{assm3}),
+\item $|1+xm_{1,2c}(z)|^{-1}=O(1)$ by lemma \ref{lem_mbehavior} (3),
+\item $|1+xm_{1,2}(z)|^{-1}=O(1)$ since $|m_{1,2}(z)|=O(\eta^{-1})\to 0$ as $\eta\to+\infty$.
+\end{itemize}
+Combining everything above gives an $O(1)$ upper bound for the integrals with high probability.
+\end{proof}
+
+The following lemma provides a bound on $G-\Pi$ starting from a bound on $|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|$ and a rough bound on $G-\Pi$.
+%So far, we have established the weak law. The rest of this section is devoted to iterate it to the optimal form.
+\begin{lemma}
+\label{avrtoani}
+Suppose at $z\in\mathcal{S}$ we have $\norm{\Pi}=O(1),\ G-\Pi=O_{\prec}(N^{\delta})$, and
+$$|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec\theta$$
+for some control parameter $\theta\leq N^{-\delta}$. Then at $z$ we have $G-\Pi=O_{\prec}(\theta+q+\tilde\Psi)$, where $\tilde\Psi$ is defined in (\ref{eq_defpsi}).
+\end{lemma}
+\begin{proof}
+From the resolvent identity (\ref{residofR}) (replace $\hat m_{1,2}$ there by $m_{1,2c}$) we deduce that $\norm{R_{m_1,m_2}}=O(1)$ with high probability by $\norm{R_{m_{1c},m_{2c}}}=\norm{\Pi}=O(1)$ and $|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec N^{-\delta}$.\\
+Combining with (\ref{GminusPi}) and lemma \ref{tildeMGRgS}, we obtain the self-improving bound
+$$G-\Pi=O_{\prec}(\phi)\quad\Longrightarrow\quad G-\Pi=O_{\prec}(\theta+(1+\phi)^{3}(q+h(\phi))).$$
+Let $\phi_0=N^{\delta},\ \phi_{n+1}=\theta+(1+\phi_{n})^{3}(q+h(\phi_{n})).$ By definition of $\delta$, we have $\phi_1\prec 1+N^{3\delta}\sqrt{N^{\delta}/(N\eta)}\prec 1$, so for all $n\geq 1$, we have $\phi_n\prec 1$ and
+\begin{equation}
+\nonumber
+\begin{aligned}
+\phi_{n+1}&=\theta+(1+\phi_n)^{3}(q+\sqrt{\frac{\Im\ m_{1c}(z)+\Im\ m_{2c}(z)+\phi_n}{N\eta}})\\
+&\prec\theta+q+\sqrt{\frac{\Im\ m_{1c}(z)+\Im\ m_{2c}(z)}{N\eta}}+\sqrt{\frac{\phi_n}{N\eta}}.
+\end{aligned}
+\end{equation}
+Abbreviate $P:=\theta+q+\tilde\Psi,$ then we have $\phi_{n+1}\prec P+\sqrt{\frac{\phi_n}{N\eta}}$, and
+\begin{equation}
+\nonumber
+\begin{aligned}
+\phi_{n+2}&\prec P+\sqrt{\frac{\phi_{n+1}}{N\eta}}\prec P+\sqrt{\frac{P+\sqrt{\frac{\phi_n}{N\eta}}}{N\eta}}\\
+&\prec P+\sqrt{\frac{P}{N\eta}}+\sqrt{\frac{\sqrt{\frac{\phi_n}{N\eta}}}{N\eta}}\prec P+\frac{\phi_{n}^{1/4}}{(N\eta)^{3/4}}
+\end{aligned}
+\end{equation}
+since $\sqrt{\frac{P}{N\eta}}\prec P+\frac{1}{N\eta}\prec P$. In an analogous way we deduce that for any fixed $k\geq 1$, we have
+$$\phi_{n+k}\prec P+\frac{\phi_{n}^{2^{-k}}}{(N\eta)^{1-2^{-k}}}.$$
+By definition of $\prec$, we conclude that $G-\Pi=O_{\prec}(P+\frac{1}{N\eta})=O_{\prec}(P)$.
+\end{proof}
+
+Next, we fix $E \in [\lambda_+-c_0,C_0 \lambda_+]$, and prove the anisotropic local law (\ref{anisotropic}) and the averaged local law (\ref{average}) for $z \in (\{E\} \times \R) \cap \f S(c_0,C_0,\epsilon)$.
+
+By lemma \ref{eta>>1}, there exists $C>0$ such that (\ref{average}) holds for $\eta>C$. Define $\mathcal{L}_0:=(\{E\}\times[C, +\infty])\cap\f S(c_0,C_0,\epsilon)$ and
+$$\mathcal{L}_k:=(\{E\}\times[CN^{-\delta k}, CN^{-\delta(k-1)}])\cap\f S(c_0,C_0,\epsilon),\quad 1\leq k\leq K:=\lfloor1/\delta\rfloor.$$
+Clearly $(\{E\}\times(0,+\infty))\cup\f S(c_0,C_0,\epsilon)\subset(\cup_{k=0}^{K}\mathcal{L}_{k})$. We would proceed by an induction on $k$. For $z\in\mathcal{L}_0$, (\ref{average}) follows by definition, and (\ref{anisotropic}) follows by lemma \ref{avrtoani} with $\theta=q^2+(N\eta)^{-1}$, since $G-\Pi=O_{\prec}(1)$ trivially. The inductive step is completed in the following lemma.
+\begin{lemma}
+Fix $1\leq k\leq K$ and assume that (\ref{anisotropic}) and (\ref{average}) hold for all $z\in\mathcal{L}_{k-1}$, then (\ref{anisotropic}) and (\ref{average}) hold for all $z\in\mathcal{L}_{k}$.
+\end{lemma}
+\begin{proof}
+By $b_k:=CN^{-\delta(k-1)}$ denote the upper edge of $\mathcal{L}_k$. We have $G=O_{\prec}(1)$ for $z=E+ib_k$ by inductive hypothesis. Together with lemma \ref{monocity}, we deduce that $G=O_{\prec}(N^{\delta})$ for $z\in\mathcal{L}_k$.\\
+By multiplying $\SH$ (resp. $\STH, \tilde{I}_{n}$) on both sides of (\ref{GandMG}), taking traces and applying lemma \ref{tildeMGRgS} with $\phi = N^{\delta}$, we obtain
+\begin{equation}
+\label{ToEstimatef}
+\mathcal{E}_1+\mathcal{E}_2+\mathcal{E}\prec(1+\phi)^{6}(q^2+h(\phi)^2)\prec q+(N\eta)^{-1/2},
+\end{equation}
+for all $z\in\mathcal{L}_k$, where we introduce
+\begin{equation}
+\nonumber
+\begin{aligned}
+  \mathcal{E}_1&:=zm_1(z)+d_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)},\\
+  \mathcal{E}_2&:=m_2(z)+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)},\\
+  \mathcal{E}&:=zm(z)+\int\frac{\pi_A(\dd t)}{1+tm_2(z)}.
+\end{aligned}
+\end{equation}
+Thus we have 
+\begin{equation}
+\label{f(z,m_2(z))}
+\begin{aligned}
+f(z,m_2(z))&=\int\frac{x\pi_B(\dd x)}{-z+xd_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)}}-m_2(z)\\
+&=\int\frac{x\pi_B(\dd x)}{-z+x(\mathcal{E}_1-zm_1(z))}+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)}-\mathcal{E}_2\\
+&=-\mathcal{E}_1\int\frac{x^2\pi_B(\dd x)}{z^2(1+xm_1(z))(1+xm_1(z)-x\mathcal{E}_1/z)}-\mathcal{E}_2.
+\end{aligned}
+\end{equation}
+We wish to deduce that $|f(z,m_2(z))|$ is small from the expression above. To this end, we need to establish the weak local law
+$$|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec q^{1/2}+(N\eta)^{-1/4}$$
+on $\mathcal{L}_k$.\\
+Let $L(E+ib_{k+1})\cap\mathcal{L}_k=\{z_1,\cdots,z_l\}$ with $z_j=E+i\eta_j,\ \eta_1>\cdots>\eta_l$. Since $m_1,m_{1c},m_2,m_{2c},G_{ij},\Pi_{ij} $ are all Lipschitz continuous with coefficient $N^2$, it suffices to derive the weak local law for $\{z_1,\cdots,z_l\}$.
+Next, we would perform a classic continuity argument to pass the local law starting from $z_1$ to $z_l$. Be careful that since $l$ is not finite as $N\to\infty$, the argument should be completely deterministic, i.e. no stochastic domination iteration argument is allowed. Instead, we should abandon the abstract stochastic domination notation here, fix the $\eps,D>0$ in the definition and keep track on the probability loss at each step going down. Since $l\leq CN^{10}$, the total probability loss turns out to be negligible.\\
+Denote $z_0=E+i\eta_0=z_1+N^{-10}i$, then $z_0\in\mathcal{L}_{k-1}$.\\
+Fix $e \in (0, \frac{\tau\wedge\epsilon}{10}), D>0$ and define a series of events
+$$A_j:=\left\{|m_{1}(z_j)-m_{1c}(z_j)|+|m_{2}(z_j)-m_{2c}(z_j)|\leq \frac{N^{e} \alpha_j}{\sqrt{\kappa+\eta_{j}+\alpha_{j}}}\right\},$$
+where $\alpha_{j}:= q+(N\eta_j)^{-1/2}$. By inductive hypothesis, weak law holds at $z_0$, thus
+$$\prob[A_0^{c}]\leq N^{-D}$$
+holds for sufficiently large $N$.\\
+Next we will try to prove that conditioned on $\cap_{i=1}^{j-1} A_{i}$, $A_{j}$ has high probability. We notice that
+$$
+  \prob[f(z,m_2(z))\geq N^{e}(\mathcal{E}_1\int\frac{x^2\pi_B(\dd x)}{z^2(1+xm_1(z))(1+xm_1(z)-x\mathcal{E}_1/z)}+\mathcal{E}_2)]\leq N^{-D}
+$$
+holds uniformly for all $z$.
+The integral in the right hand side of the above equation has an $O(1)$ upper bound for $z_{1}$,...,$z_{j}$ under the induction hypothesis, since for $x\in\supp\pi_{B}$, we have:
+\begin{itemize}
+\item $x,x^{2}=O(1)$ by assumption (\ref{assm3}),
+\item $|1+xm_{1c}(z)|\geq\tau'>0$ by lemma \ref{lem_mbehavior} (3),
+\item On $A_{j-1}$ we have $|m_1(z_j)-m_{1c}(z_j)|+|m_2(z_j)-m_{2c}(z_j)|\leq N^{-\delta}$ by Lipschitz continuity .  
+\end{itemize}
+Since $\mathcal{E}_{1,2}\prec N^{6\delta}(q^2+(N\eta)^{-1})\prec q+(N\eta)^{-1/2}$,
+we have $$\prob[\mathcal{E}_{1,2}\geq N^{e/2}(q+(N\eta)^{-1/2})]\leq N^{-D}$$.
+Thus, 
+$$
+  P(\cap_{l=1}^{j-1} A_{l}\cap \{f(z,m_2(z))\geq N^{e/2}(q+(N\eta)^{-1/2}))\ ,\forall z\in L(z_j)\})\leq N^{-D}
+$$
+By the stability property (Lemma(\ref{stability}) of the self-consistent equation 
+$f(z,m_2(z))\geq N^{e/2}(q+(N\eta)^{-1/2})), \ \forall z\in L(z_j) $ we can deduce
+$$ |m_2(z_j)-m_{2c}(z_j)|\leq \frac{C N^{e/2}(q+(N\eta_j)^{-1/2}))}{\sqrt{\kappa+\eta_{j}+N^{e}(q+(N\eta)^{-1/2})}} \leq \frac{N^{\frac{2}{3}e}\alpha_j}{\sqrt{\kappa+\eta_{j}+\alpha_j}}.
+$$
+Moreover, by definition of $\mathcal{E}_{12}$ and Lemma(\ref{appliof4.2}) 
+$$
+  |m_1(z_j)-m_{1c}(z_j)|\leq\frac{\tilde{C}N^{\frac{2}{3}e}\alpha_j}{\sqrt{\kappa+\eta_{j}+\alpha_j}}
+$$
+by (\ref{mutualdomination}).
+Therefore $\prob[(\cap_{h=1}^{j-1} A_{h})\cap A_{j}^{c}]\leq N^{-D}$. Thus,
+$
+ \prob[(\cap_{h} A_{h})^{c}]\leq N^{10-D}
+$ for $N$ large enough,  and by the definition of stochastic domination,
+$$
+|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec q^{1/2}+(N\eta)^{-1/4}$$.
+
+The final step of the proof will be improving the weak local law to the strong one. Specifically, suppose that $\theta\leq N^{-\delta}$ is a control parameter and $
+|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec \theta$ for $z\in \mathcal{L}_k.$ 
+From Lemma \ref{avrtoani} we deduce that $G-\Pi \prec\theta+q+\tilde{\Psi}$, and by (\ref{f(z,m_2(z))}) we therefore have
+$$
+f(z,m_2(z))\prec q^2+h(\theta+q+\tilde{\Psi})^2 \prec
+q^2+\frac{\Im m_{1c}(z)+\Im m_{2c}(z)}{N\eta}+\frac{\theta+q}{N\eta}+\frac{1}{(N\eta)^2},\ \ \forall z\in \mathcal{L}_{k}
+$$
+Applying Lemma \ref{stability} with $\delta(z):=q^2+\frac{\Im m_{1c}(z)+\Im m_{2c}(z)}{N\eta}+\frac{\theta+q}{N\eta}+\frac{1}{(N\eta)^2}$ and an $N^{-10}$ argument similar as the proof of weak local law above, we have
+$$
+ |m_2(z)-m_{2c}(z)|\prec \frac{\delta}{\sqrt{\kappa+\eta+\delta}}
+ \prec (\frac{q^2}{\sqrt{\kappa+\eta}}\wedge q)+\frac{1}{N\eta}+\sqrt{\frac{\theta+q}{N\eta}}
+.$$
+Abbreviate $Q:=(\frac{q^2}{\sqrt{\kappa+\eta}}\wedge q)+\frac{1}{N\eta}$, so we have $|m_2(z)-m_{2c}(z)|\prec Q+\sqrt{\frac{\theta+q}{N\eta}}\prec Q+\sqrt{\frac{\theta}{N\eta}}$.\\
+Since $\mathcal{E}_{12}\prec q^2+h(\theta+q+\tilde{\Psi})^2\prec Q$, we have $|m_1(z)-m_{1c}(z)|\prec Q+\sqrt{\frac{\theta}{N\eta}}$ as well. (Note that the weak law ensures that the integral appearing in $\mathcal{E}_{12}$ has an $O(1)$ upper bound with high probability.)\\
+Thus we have obtained the self improving bound
+$$|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec\theta\Longrightarrow|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec Q+\sqrt{\frac{\theta}{N\eta}}.$$
+By definition of $\prec$, we conclude that $|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec Q+\frac{1}{N\eta}\prec Q$.\\
+Applying lemma \ref{avrtoani} to $\theta=Q$, we conclude that $G-\Pi=O_\prec(q+\tilde{\Psi})$, i.e. the anisotropic law (\ref{anisotropic}) is proved.\\
+Since $\mathcal{E}_{01}\prec q^2+h(q+\tilde{\Psi})^2\prec Q$, we have $|m(z)-m_c(z)|\prec Q$ as well, i.e. the average law (\ref{average}) is proved.
+\end{proof}
+
+%\textcolor{blue}{
+%I think the problem is that if we iterate $N^3$ steps, we will get $N^3$ anisotropic laws that are not uniform. We cannot directly say that they are uniform since $N^3$ is infinite.  \cite{benaychgeorges2018lectureslocalsemicirclelaw} uses an iterative step of $N^{-3}$. I tried to follow this work, but I met some difficulty mainly because $\prec$ is different from $\leq$. Maybe a good way will be directly deriving a lower bound for $1+\sigma_{i}m_1(z)$? (I don't know.)}
+
+
+
+%We propose an iterated bound related with the average local law.
+%   Given $z'\in \f S(c_0,C_0,\epsilon)$, suppose for all $z\in L(z')$ we have $\ G-\Pi=O_{\prec}(N^{\delta})$, and
+%$$|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec\theta$$
+%for some control parameter $\theta\leq N^{-\delta}$. Then we have$$ |m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec q^2+\frac{1}{N\eta}+\sqrt{\frac{\theta}{N\eta}}$$.
+%\end{lemma}
+%\begin{proof}
+   %From (\ref{residofR}), $|m_{1}(z)-m_{1c}(z)|+|m_{2}(z)-m_{2c}(z)|\prec\theta$ and $\norm{R_{m_{1c},m_{2c}}} = O(1)$ we can deduce that $\norm{R_{m_{1},m_{2}}} = O(1)$ with high probability for all $z\in L(z')$. In addition, from lemma \ref{avrtoani} we have $G-\Pi = O_{\prec}(\theta+q+\tilde\Psi)$.\\
+   %This part is moved to proof of lemma 4.7
+%    By multiplying $\SH$ (resp. $\STH, \tilde{I}_{n}$) on both sides of (\ref{GandMG}) and taking traces and applying lemma \ref{tildeMGRgS} with $\phi = \theta+q+\tilde\Psi$, we obtain that
+% \begin{equation}
+% \nonumber
+% \begin{aligned}
+%   \mathcal{E}_1&:=zm_1(z)+d_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)} \prec (1+\phi)^{6}(q^2+h(\phi)^2),\\
+%   \mathcal{E}_2&:=m_2(z)+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)} \prec (1+\phi)^{6}(q^2+h(\phi)^2),\\
+%   \mathcal{E}&:=zm(z)+\int\frac{\pi_A(\dd t)}{1+tm_2(z)}\prec (1+\phi)^{6}(q^2+h(\phi)^2).
+% \end{aligned}
+% \end{equation}
+% Thus we have 
+% \begin{equation}
+% \nonumber
+% \begin{aligned}
+% f(z,m_2(z))&=\int\frac{x\pi_B(\dd x)}{-z+xd_N\int\frac{t\pi_A(\dd t)}{1+tm_2(z)}}-m_2(z)\\
+% &=\int\frac{x\pi_B(\dd x)}{-z+x(\mathcal{E}_1-zm_1(z))}+z^{-1}\int\frac{x\pi_B(\dd x)}{1+xm_1(z)}-\mathcal{E}_2\\
+% &=-\mathcal{E}_1\int\frac{x^2\pi_B(\dd x)}{z^2(1+xm_1(z))(1+xm_1(z)-x\mathcal{E}_1/z)}-\mathcal{E}_2.
+% \end{aligned}
+% \end{equation}
+% The integral in the right hand side of the above equation has an $O(1)$ upper bound with high probability, since for $x\in\supp\pi_{B}$, we have:
+% \begin{itemize}
+% \item $x,x^{2}=O(1)$ by assumption (\ref{assm3}),
+% \item $|1+xm_{1c}(z)|\geq\tau'>0$ by lemma \ref{lem_mbehavior} (3),
+% \item $|m_1(z)-m_{1c}(z)|\prec N^{-\delta}$ by inductive hypothesis.
+% \end{itemize}
+% Therefore, $|f(z,m_2(z))|\prec(1+\phi)^{6}(q^2+h(\phi)^2)$.\\
+%Denote $\xi = \frac{\Im m_{1c}(z)+\Im m_2c(z)+q+\theta}{N\eta}+\frac{1}{(N\eta}$
+%\end{proof}
+
+
+\bibliographystyle{alpha}
+\bibliography{sample}
+
+\end{document}
